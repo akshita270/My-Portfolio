@@ -83,6 +83,7 @@ export const products = [
   },
   {
     href: "https://github.com/akshita270/memoryos-benchmark",
+    live: "https://huggingface.co/spaces/akshita27/memoryos-benchmark",
     title: "MemoryOS Benchmark",
     description:
       "A controlled benchmark proving that an AI agent with a 3-layer memory system consistently outperforms a stateless baseline across 50 scripted tasks spanning 10 sessions — quantifying exactly how much persistent memory improves an agent.",
