@@ -52,7 +52,7 @@ export const products = [
     stack: ["Python", "ChromaDB", "RAGAS", "Claude/GPT", "LLM-as-Judge"],
     slug: "rag-comparison-experiment",
     research: true,
-    live: "https://rag-comparison-experiment.streamlit.app",
+    live: "https://huggingface.co/spaces/akshita27/RAG-comparison-dashboard-",
     blog: "https://tinyurl.com/3jyjvhaz",
     highlights: [
       "4 architectures benchmarked head-to-head: Vanilla RAG (baseline), HyDE RAG (hypothetical-document embeddings), GraphRAG (knowledge graph + vector hybrid), and Agentic RAG (ReAct tool-use agent)",
