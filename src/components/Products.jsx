@@ -39,7 +39,7 @@ export const Products = ({ items = allProducts }) => {
               </div>
               <div className="flex flex-wrap gap-2 mt-4">
                 {product.stack?.map((stack) => (
-                  <span key={stack} className="text-xs md:text-xs lg:text-xs bg-gray-50 hover:bg-white hover:shadow-sm hover:text-primary border border-transparent hover:border-neutral-200 px-2 py-1 rounded-sm text-secondary transition cursor-pointer">
+                  <span key={stack} className="text-xs md:text-xs lg:text-xs bg-gray-50 hover:bg-white hover:text-primary border-2 border-neutral-300 hover:border-neutral-500 px-2 py-1 rounded-sm text-secondary transition cursor-pointer">
                     {stack}
                   </span>
                 ))}

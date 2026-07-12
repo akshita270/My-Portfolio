@@ -23,7 +23,7 @@ export const SingleProduct = ({ product }) => {
         <Heading className="font-black mb-2 pb-1">{product.title}</Heading>
         <div className="flex flex-wrap gap-2 md:mb-1 mt-2 md:mt-0">
           {product.stack?.map((stack) => (
-            <span key={stack} className="text-xs md:text-xs lg:text-xs bg-gray-50 hover:bg-white hover:text-primary border border-neutral-200 hover:border-neutral-300 hover:shadow-sm px-2 py-1 rounded-sm text-secondary transition cursor-pointer">
+            <span key={stack} className="text-xs md:text-xs lg:text-xs bg-gray-50 hover:bg-white hover:text-primary border-2 border-neutral-300 hover:border-neutral-500 px-2 py-1 rounded-sm text-secondary transition cursor-pointer">
               {stack}
             </span>
           ))}
