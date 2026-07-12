@@ -160,4 +160,22 @@ export const products = [
       "Streamlit interface takes any stock, company, or financial question and runs both agents in parallel, showing market data and news side by side",
     ],
   },
+  {
+    href: "https://github.com/akshita270/speculative-decoding-inference-engine",
+    live: "https://speculative-decoding-inference-engine.streamlit.app",
+    title: "Speculative Decoding Inference Engine",
+    description:
+      "A mini LLM inference system built around speculative decoding — a small draft model proposes tokens ahead, and a large target model verifies them in a single batched pass, producing mathematically identical output to standard sampling but significantly faster.",
+    thumbnail: "⚡",
+    color: "#6366f1",
+    period: "2026",
+    stack: ["Python", "FastAPI", "Streamlit", "HuggingFace", "PyTorch"],
+    slug: "speculative-decoding-inference-engine",
+    highlights: [
+      "Speculative decoding engine: draft model proposes k tokens, target model verifies all in one batched forward pass — accept/reject rule guarantees output is mathematically identical to sampling from the target alone",
+      "Request queue + batcher groups concurrent requests arriving within ~50ms into a single batch instead of dropping them",
+      "Semantic cache layer: cosine similarity ≥ 0.92 serves cached responses instantly, bypassing the inference engine entirely",
+      "Load-based router: routes to a faster draft model under high load, a better draft model under low load — balancing latency vs. acceptance rate dynamically",
+    ],
+  },
 ];
