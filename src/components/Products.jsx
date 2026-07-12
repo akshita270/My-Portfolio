@@ -16,7 +16,7 @@ export const Products = ({ items = allProducts }) => {
         >
           <Link
             to={`/projects/${product.slug}`}
-            className="group flex flex-col h-full border border-neutral-100 hover:border-neutral-200 hover:shadow-md rounded-2xl transition duration-200 overflow-hidden bg-white"
+            className="group flex flex-col h-full border border-neutral-100 hover:border-neutral-200 hover:shadow-xl rounded-2xl transition-all duration-200 overflow-hidden bg-white hover:-translate-y-1 hover:scale-[1.02]"
           >
             <div
               className="w-full h-[160px] flex items-center justify-center text-5xl flex-shrink-0 overflow-hidden"
