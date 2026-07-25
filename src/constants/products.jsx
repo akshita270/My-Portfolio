@@ -102,7 +102,7 @@ export const products = [
     ],
   },
   {
-    href: "https://lnkd.in/gabgdR3i",
+    href: "https://github.com/akshita270/askql",
     live: "https://lnkd.in/gabgdR3i",
     title: "AskQL — Multi-Tenant Text-to-SQL Analytics Platform",
     description:
