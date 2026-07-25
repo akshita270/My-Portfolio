@@ -17,9 +17,11 @@ export default function Home() {
       </motion.span>
       <Heading className="font-black">Hello there! I&apos;m Akshita</Heading>
       <Paragraph className="max-w-xl mt-4">
-        Data Analyst with experience in healthcare analytics, data visualization, and clinical data reporting.
-        Currently working at KareXpert, where I build dashboards, analyze healthcare data, and support
-        data-driven decision-making across hospital operations.
+        AI Engineer with expertise in Generative AI, LLM applications, and healthcare analytics. Experienced
+        in building production-ready AI solutions including RAG systems, AI-powered analytics assistants,
+        FastAPI backend services, and intelligent dashboard platforms. Passionate about developing scalable
+        AI products that transform complex healthcare data into actionable insights through machine learning,
+        automation, and modern AI technologies.
       </Paragraph>
 
       <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mt-16 mb-2">
