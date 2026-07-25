@@ -40,7 +40,8 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="max-w-2xl rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden"
+        className="max-w-2xl rounded-2xl border border-slate-700 overflow-hidden shadow-xl"
+        style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}
       >
         {/* top accent bar */}
         <div className="h-[3px] w-full bg-gradient-to-r from-sky-500 via-violet-500 to-indigo-500" />
@@ -49,14 +50,14 @@ export default function Home() {
           {/* highlight chips */}
           <div className="flex flex-wrap gap-2">
             {highlights.map((h) => (
-              <span key={h.label} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-neutral-700">
+              <span key={h.label} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90">
                 <span>{h.icon}</span>{h.label}
               </span>
             ))}
           </div>
 
           {/* paragraphs */}
-          <div className="flex flex-col gap-4 text-sm text-secondary leading-relaxed">
+          <div className="flex flex-col gap-4 text-sm text-white/80 leading-relaxed">
             <p>
               I&apos;m an AI Engineer passionate about building intelligent systems powered by Large Language Models
               (LLMs), Retrieval-Augmented Generation (RAG), and agentic AI. My work focuses on developing
@@ -64,13 +65,13 @@ export default function Home() {
               to solve real-world business problems.
             </p>
             <p>
-              Currently, I work at <span className="font-semibold text-primary">KareXpert</span>, where I design and develop AI-powered solutions for the healthcare
+              Currently, I work at <span className="font-semibold text-white">KareXpert</span>, where I design and develop AI-powered solutions for the healthcare
               industry — building FastAPI backend services, AI-driven business intelligence platforms, RAG-based
               chatbots, and intelligent analytics tools that enable users to interact with healthcare data using
               natural language.
             </p>
             <p>
-              I completed my <span className="font-semibold text-primary">M.S. in Applied Data Analytics</span> from Boston University, where I also worked as a
+              I completed my <span className="font-semibold text-white">M.S. in Applied Data Analytics</span> from Boston University, where I also worked as a
               Graduate Research Assistant on AI-driven healthcare research, gaining hands-on experience in
               machine learning, multi-agent systems, LLM workflows, and AI system design.
             </p>
@@ -81,8 +82,8 @@ export default function Home() {
           </div>
 
           {/* divider + tagline */}
-          <div className="pt-4 border-t border-neutral-100">
-            <p className="text-xs text-neutral-400 italic">
+          <div className="pt-4 border-t border-white/10">
+            <p className="text-xs text-white/40 italic">
               "Great AI systems are built on top of reliable data — not the other way around."
             </p>
           </div>
