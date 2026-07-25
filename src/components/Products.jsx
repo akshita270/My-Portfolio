@@ -38,10 +38,7 @@ export const Products = ({ items = allProducts }) => {
 
               {/* year badge */}
               {product.period && (
-                <span
-                  className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                  style={{ background: `${product.color}25`, color: product.color }}
-                >
+                <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/10 text-neutral-700">
                   {product.period}
                 </span>
               )}
@@ -50,7 +47,7 @@ export const Products = ({ items = allProducts }) => {
             {/* Content */}
             <div className="flex flex-col flex-1 p-5 gap-3">
               <div className="flex items-start justify-between gap-2">
-                <Heading as="h4" className="font-black text-sm md:text-sm lg:text-sm leading-snug">
+                <Heading as="h4" className="font-black text-base md:text-base lg:text-base leading-snug">
                   {product.title}
                 </Heading>
                 {/* arrow */}
@@ -66,13 +63,13 @@ export const Products = ({ items = allProducts }) => {
                 </svg>
               </div>
 
-              <p className="text-xs text-secondary leading-relaxed line-clamp-3">
+              <p className="text-sm text-secondary leading-relaxed line-clamp-3">
                 {product.description}
               </p>
 
               {/* first highlight as teaser */}
               {product.highlights?.[0] && (
-                <p className="text-xs leading-relaxed line-clamp-2 pl-3 border-l-2" style={{ borderColor: product.color, color: product.color + "cc" }}>
+                <p className="text-xs text-neutral-500 leading-relaxed line-clamp-2 pl-3 border-l-2 border-neutral-300">
                   {product.highlights[0]}
                 </p>
               )}
@@ -82,7 +79,7 @@ export const Products = ({ items = allProducts }) => {
                 {product.stack?.map((stack) => (
                   <span
                     key={stack}
-                    className="text-[10px] font-medium px-2 py-0.5 rounded-full border border-neutral-200 text-secondary bg-neutral-50 hover:bg-white hover:border-neutral-400 hover:text-primary transition cursor-pointer"
+                    className="text-xs font-medium px-2 py-0.5 rounded-full border-2 border-neutral-300 text-neutral-700 bg-neutral-50 hover:bg-white hover:border-neutral-500 hover:text-primary transition cursor-pointer"
                   >
                     {stack}
                   </span>
