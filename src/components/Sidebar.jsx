@@ -88,8 +88,8 @@ const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
       <img
-        src="https://api.dicebear.com/7.x/initials/svg?seed=Akshita%20Jain&backgroundColor=8b5cf6&textColor=ffffff"
-        alt="Avatar"
+        src="/images/akshita-profile.jpg"
+        alt="Akshita Jain"
         height="40"
         width="40"
         className="object-cover object-top rounded-full flex-shrink-0 h-10 w-10"
