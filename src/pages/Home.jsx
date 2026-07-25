@@ -29,29 +29,29 @@ export default function Home() {
       </Heading>
       <div className="max-w-2xl">
         <Paragraph className="mt-4">
-          My journey started in data analytics, where I learned that great AI systems are built on top of
-          reliable data, not the other way around.
+          I&apos;m an AI Engineer passionate about building intelligent systems powered by Large Language Models
+          (LLMs), Retrieval-Augmented Generation (RAG), and agentic AI. My work focuses on developing
+          production-ready AI applications that combine robust backend engineering with modern Generative AI
+          to solve real-world business problems.
         </Paragraph>
         <Paragraph className="mt-4">
-          As a Data Analyst at KareXpert, I work extensively with healthcare datasets, business intelligence
-          solutions, SQL-based analytics, and dashboard development. This experience has given me a deep
-          understanding of healthcare workflows, clinical data, and the challenges of working with real-world
-          data at scale.
+          Currently, I work at KareXpert, where I design and develop AI-powered solutions for the healthcare
+          industry. My work includes building FastAPI backend services, developing AI-driven business
+          intelligence platforms, implementing RAG-based chatbots, integrating LLMs such as Gemini and
+          OpenAI, and creating intelligent analytics tools that enable users to interact with healthcare data
+          using natural language.
         </Paragraph>
         <Paragraph className="mt-4">
-          Beyond my day-to-day role, I actively build Generative AI projects focused on Retrieval-Augmented
-          Generation (RAG), agentic workflows, LLM evaluation, document intelligence, and healthcare AI
-          applications. My projects explore how AI can retrieve, reason over, and generate reliable responses
-          from complex data sources while minimizing hallucinations.
+          I completed my M.S. in Applied Data Analytics from Boston University, where I also worked as a
+          Graduate Research Assistant on AI-driven healthcare research. During this time, I gained hands-on
+          experience in machine learning, multi-agent systems, LLM workflows, and AI system design, further
+          strengthening my passion for applied artificial intelligence.
         </Paragraph>
         <Paragraph className="mt-4">
-          I earned my M.S. in Applied Data Analytics from Boston University, where I also worked as a Graduate
-          Research Assistant. My research exposure and hands-on projects strengthened my interest in machine
-          learning, large language models, and AI system design.
-        </Paragraph>
-        <Paragraph className="mt-4">
-          Today, my goal is to bridge healthcare analytics and AI engineering by building intelligent systems
-          that transform complex data into actionable insights.
+          I&apos;m particularly interested in Generative AI, Agentic AI, RAG systems, AI orchestration, and
+          healthcare AI, and I enjoy exploring new techniques to build scalable, trustworthy, and
+          production-ready AI applications. My goal is to create AI systems that transform complex data into
+          meaningful insights and help organisations make faster, smarter, and more informed decisions.
         </Paragraph>
       </div>
 
