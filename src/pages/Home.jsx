@@ -4,6 +4,13 @@ import { Heading } from "../components/Heading";
 import { Paragraph } from "../components/Paragraph";
 import { TechStack } from "../components/TechStack";
 
+const highlights = [
+  { icon: "🤖", label: "Generative AI & LLMs" },
+  { icon: "🔍", label: "RAG Systems" },
+  { icon: "🏥", label: "Healthcare AI" },
+  { icon: "⚡", label: "Agentic Workflows" },
+];
+
 export default function Home() {
   return (
     <Container>
@@ -24,36 +31,63 @@ export default function Home() {
         automation, and modern AI technologies.
       </Paragraph>
 
-      <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mt-16 mb-2">
+      <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mt-16 mb-4">
         About Me
       </Heading>
-      <div className="max-w-2xl">
-        <Paragraph className="mt-4">
-          I&apos;m an AI Engineer passionate about building intelligent systems powered by Large Language Models
-          (LLMs), Retrieval-Augmented Generation (RAG), and agentic AI. My work focuses on developing
-          production-ready AI applications that combine robust backend engineering with modern Generative AI
-          to solve real-world business problems.
-        </Paragraph>
-        <Paragraph className="mt-4">
-          Currently, I work at KareXpert, where I design and develop AI-powered solutions for the healthcare
-          industry. My work includes building FastAPI backend services, developing AI-driven business
-          intelligence platforms, implementing RAG-based chatbots, integrating LLMs such as Gemini and
-          OpenAI, and creating intelligent analytics tools that enable users to interact with healthcare data
-          using natural language.
-        </Paragraph>
-        <Paragraph className="mt-4">
-          I completed my M.S. in Applied Data Analytics from Boston University, where I also worked as a
-          Graduate Research Assistant on AI-driven healthcare research. During this time, I gained hands-on
-          experience in machine learning, multi-agent systems, LLM workflows, and AI system design, further
-          strengthening my passion for applied artificial intelligence.
-        </Paragraph>
-        <Paragraph className="mt-4">
-          I&apos;m particularly interested in Generative AI, Agentic AI, RAG systems, AI orchestration, and
-          healthcare AI, and I enjoy exploring new techniques to build scalable, trustworthy, and
-          production-ready AI applications. My goal is to create AI systems that transform complex data into
-          meaningful insights and help organisations make faster, smarter, and more informed decisions.
-        </Paragraph>
-      </div>
+
+      {/* Premium About Me card */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="max-w-2xl rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden"
+      >
+        {/* top accent bar */}
+        <div className="h-[3px] w-full bg-gradient-to-r from-sky-500 via-violet-500 to-indigo-500" />
+
+        <div className="p-6 md:p-8 flex flex-col gap-5">
+          {/* highlight chips */}
+          <div className="flex flex-wrap gap-2">
+            {highlights.map((h) => (
+              <span key={h.label} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200 text-neutral-700">
+                <span>{h.icon}</span>{h.label}
+              </span>
+            ))}
+          </div>
+
+          {/* paragraphs */}
+          <div className="flex flex-col gap-4 text-sm text-secondary leading-relaxed">
+            <p>
+              I&apos;m an AI Engineer passionate about building intelligent systems powered by Large Language Models
+              (LLMs), Retrieval-Augmented Generation (RAG), and agentic AI. My work focuses on developing
+              production-ready AI applications that combine robust backend engineering with modern Generative AI
+              to solve real-world business problems.
+            </p>
+            <p>
+              Currently, I work at <span className="font-semibold text-primary">KareXpert</span>, where I design and develop AI-powered solutions for the healthcare
+              industry — building FastAPI backend services, AI-driven business intelligence platforms, RAG-based
+              chatbots, and intelligent analytics tools that enable users to interact with healthcare data using
+              natural language.
+            </p>
+            <p>
+              I completed my <span className="font-semibold text-primary">M.S. in Applied Data Analytics</span> from Boston University, where I also worked as a
+              Graduate Research Assistant on AI-driven healthcare research, gaining hands-on experience in
+              machine learning, multi-agent systems, LLM workflows, and AI system design.
+            </p>
+            <p>
+              My goal is to create AI systems that transform complex data into meaningful insights and help
+              organisations make faster, smarter, and more informed decisions.
+            </p>
+          </div>
+
+          {/* divider + tagline */}
+          <div className="pt-4 border-t border-neutral-100">
+            <p className="text-xs text-neutral-400 italic">
+              "Great AI systems are built on top of reliable data — not the other way around."
+            </p>
+          </div>
+        </div>
+      </motion.div>
 
       <TechStack />
     </Container>
