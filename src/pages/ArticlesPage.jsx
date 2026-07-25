@@ -9,7 +9,6 @@ const articles = [
       "A structured research experiment comparing four RAG architectures — Vanilla, HyDE, GraphRAG, and Agentic RAG — on their ability to reduce hallucinations when answering questions about AI/ML research papers from ArXiv.",
     href: "https://tinyurl.com/3jyjvhaz",
     icon: "📚",
-    color: "#10b981",
     tags: ["RAG", "LLMs", "Hallucination", "Research"],
   },
   {
@@ -18,7 +17,6 @@ const articles = [
       "A deep dive into building Startup Copilot — a 7-agent pipeline covering idea generation, market research, competitor analysis, revenue modeling, MVP planning, and an investor-ready pitch deck, fully automated.",
     href: "https://akshitajain.hashnode.dev/how-i-built-a-7-agent-ai-pipeline-that-generates-a-startup-blueprint-in-minutes",
     icon: "🚀",
-    color: "#8b5cf6",
     tags: ["Multi-Agent", "AI Pipeline", "Startup", "LLMs"],
   },
 ];
@@ -32,32 +30,40 @@ export default function ArticlesPage() {
         Writing about AI engineering, multi-agent systems, and lessons learned building production RAG pipelines.
       </Paragraph>
 
-      <div className="flex flex-col divide-y divide-neutral-100">
+      <div className="flex flex-col gap-5">
         {articles.map((article) => (
           <a
             key={article.href}
             href={article.href}
             target="_blank"
             rel="noreferrer"
-            className="group py-6 first:pt-0"
+            className="group rounded-2xl border border-slate-700 overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+            style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}
           >
-            <div className="flex items-start gap-3">
-              <span className="text-2xl mt-0.5 flex-shrink-0">{article.icon}</span>
-              <div>
-                <h3 className="font-semibold text-primary text-base leading-snug group-hover:text-sky-600 transition-colors">
+            {/* accent bar */}
+            <div className="h-[3px] w-full bg-gradient-to-r from-sky-500 via-violet-500 to-indigo-500" />
+
+            <div className="p-6 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <span className="text-3xl flex-shrink-0">{article.icon}</span>
+                <h3 className="font-semibold text-white text-base leading-snug group-hover:text-sky-300 transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-secondary text-sm mt-2 leading-relaxed max-w-xl">{article.description}</p>
-                <div className="flex flex-wrap gap-2 mt-3">
+              </div>
+
+              <p className="text-white/70 text-sm leading-relaxed">{article.description}</p>
+
+              <div className="flex items-center justify-between flex-wrap gap-3 pt-2 border-t border-white/10">
+                <div className="flex flex-wrap gap-2">
                   {article.tags.map((tag) => (
-                    <span key={tag} className="text-xs bg-gray-50 hover:bg-white hover:shadow-sm hover:text-primary border border-transparent hover:border-neutral-200 px-2 py-1 rounded-sm text-secondary transition cursor-pointer">
+                    <span key={tag} className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-white/80 hover:bg-white/20 transition cursor-pointer">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <span className="inline-flex items-center gap-1 text-sm mt-3 text-sky-600 font-medium border border-sky-200 px-3 py-1 rounded-full hover:bg-sky-50 hover:shadow-sm transition">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-sky-400 border border-sky-500/40 px-3 py-1 rounded-full hover:bg-sky-500/10 transition">
                   Read article
-                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform">
                     <path d="M5 12l14 0"></path>
                     <path d="M13 18l6 -6"></path>
                     <path d="M13 6l6 6"></path>
