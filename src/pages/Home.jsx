@@ -47,15 +47,6 @@ export default function Home() {
         <div className="h-[3px] w-full bg-gradient-to-r from-sky-500 via-violet-500 to-indigo-500" />
 
         <div className="p-6 md:p-8 flex flex-col gap-5">
-          {/* highlight chips */}
-          <div className="flex flex-wrap gap-2">
-            {highlights.map((h) => (
-              <span key={h.label} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90">
-                <span>{h.icon}</span>{h.label}
-              </span>
-            ))}
-          </div>
-
           {/* paragraphs */}
           <div className="flex flex-col gap-4 text-sm text-white/80 leading-relaxed">
             <p>
