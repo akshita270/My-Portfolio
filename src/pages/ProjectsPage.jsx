@@ -2,6 +2,7 @@ import { Container } from "../components/Container";
 import { Heading } from "../components/Heading";
 import { Paragraph } from "../components/Paragraph";
 import { Products } from "../components/Products";
+import { FadeIn } from "../components/FadeIn";
 import { products } from "../constants/products";
 
 export default function ProjectsPage() {
@@ -15,10 +16,10 @@ export default function ProjectsPage() {
       <Paragraph className="mb-10 max-w-xl">
         Multi-agent pipelines, genomic AI, healthcare NLP — projects that push the boundaries of what AI can do.
       </Paragraph>
-      <Products items={mainProjects} />
+      <FadeIn><Products items={mainProjects} /></FadeIn>
 
       {researchProjects.length > 0 && (
-        <div className="mt-16">
+        <FadeIn className="mt-16">
           <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mb-2">
             Research Projects
           </Heading>
@@ -26,7 +27,7 @@ export default function ProjectsPage() {
             Benchmarking and evaluation work exploring RAG architectures and agent memory.
           </Paragraph>
           <Products items={researchProjects} />
-        </div>
+        </FadeIn>
       )}
     </Container>
   );
