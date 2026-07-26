@@ -122,6 +122,16 @@ a {
   color: var(--text-secondary) !important;
 }
 
+/* Project cards */
+[data-theme="dark"] a.bg-white {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+[data-theme="dark"] a.bg-white:hover {
+  background-color: #273549 !important;
+}
+
 /* Buttons */
 [data-theme="dark"] button.bg-white {
   background-color: #1e293b !important;

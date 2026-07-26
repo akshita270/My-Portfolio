@@ -23,14 +23,11 @@ export const Products = ({ items = allProducts }) => {
               className="relative w-full h-[170px] flex items-center justify-center flex-shrink-0 overflow-hidden"
               style={{ background: `linear-gradient(135deg, ${product.color}22 0%, ${product.color}10 100%)` }}
             >
-              {/* accent line at top */}
-              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: product.color }} />
-
               {product.image ? (
                 <img
                   src={product.image}
                   alt={product.title}
-                  className={`w-full h-full ${product.contain ? "object-contain p-4" : "object-cover object-top"}`}
+                  className={`absolute inset-0 w-full h-full ${product.contain ? "object-contain p-4" : "object-cover object-top"}`}
                 />
               ) : (
                 <span className="text-6xl select-none">{product.thumbnail}</span>
