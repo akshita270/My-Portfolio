@@ -10,6 +10,7 @@ export const products = [
     period: "2026",
     stack: ["Python", "FastAPI", "GPT-4o", "Neo4j", "spaCy", "Streamlit"],
     slug: "genesight",
+    featured: true,
     highlights: [
       "8-agent pipeline: Task Planner → Literature Retrieval (PubMed/NCBI Entrez) → Info Extraction (spaCy biomedical NER) → Genomics DB lookup (NCBI Gene + UniProt) → Knowledge Graph (Neo4j) → Hypothesis Generation (GPT-4o) → Evidence Validation → Report Generation",
       "Pulls real biomedical literature from PubMed and cross-references NCBI Gene and UniProt for gene/protein metadata",
@@ -29,6 +30,7 @@ export const products = [
     period: "2026",
     stack: ["Python", "FastAPI", "React", "Vite", "Groq (Llama 3.3-70B)", "Supabase"],
     slug: "startup-copilot",
+    featured: true,
     live: "https://startup-copilot-ohe44n0s9-akshita270s-projects.vercel.app",
     blog: "https://tinyurl.com/379j7j5v",
     highlights: [
@@ -112,6 +114,7 @@ export const products = [
     period: "2026",
     stack: ["FastAPI", "React", "PostgreSQL", "SQLite", "Google Cloud Run", "GCS", "Vercel", "OpenAI"],
     slug: "askql",
+    featured: true,
     highlights: [
       "Multi-tenant architecture: each user gets an isolated workspace for uploading CSV datasets alongside a shared demo database",
       "Backend streams generated SQL token-by-token in real time with an AST-based guardrail layer that blocks unauthorized tables, non-SELECT statements, and prompt-injection attempts before any query touches the database",

@@ -36,6 +36,12 @@ export const Products = ({ items = allProducts }) => {
                 <span className="text-6xl select-none">{product.thumbnail}</span>
               )}
 
+              {/* featured badge */}
+              {product.featured && (
+                <span className="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-400 text-amber-900 tracking-wide uppercase">
+                  ★ Featured
+                </span>
+              )}
               {/* year badge */}
               {product.period && (
                 <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/10 text-neutral-700">
