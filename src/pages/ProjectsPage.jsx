@@ -11,13 +11,23 @@ const tabs = ["All", "AI Systems", "Research", "Featured"];
 export default function ProjectsPage() {
   const [active, setActive] = useState("All");
 
-  const filtered = products.filter((p) => {
-    if (active === "All") return true;
-    if (active === "Research") return p.research;
+  const mainProjects = products.filter((p) => !p.research);
+  const researchProjects = products.filter((p) => p.research);
+
+  const filteredMain = mainProjects.filter((p) => {
+    if (active === "All" || active === "AI Systems") return true;
     if (active === "Featured") return p.featured;
-    if (active === "AI Systems") return !p.research;
-    return true;
+    return false;
   });
+
+  const filteredResearch = researchProjects.filter((p) => {
+    if (active === "All" || active === "Research") return true;
+    if (active === "Featured") return p.featured;
+    return false;
+  });
+
+  const showMain = active !== "Research" && filteredMain.length > 0;
+  const showResearch = active !== "AI Systems" && filteredResearch.length > 0;
 
   return (
     <Container>
@@ -44,9 +54,23 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <FadeIn key={active}>
-        <Products items={filtered} />
-      </FadeIn>
+      {showMain && (
+        <FadeIn key={`main-${active}`}>
+          <Products items={filteredMain} />
+        </FadeIn>
+      )}
+
+      {showResearch && (
+        <FadeIn key={`research-${active}`} className="mt-16">
+          <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mb-2">
+            Research Projects
+          </Heading>
+          <Paragraph className="mb-6 max-w-xl">
+            Benchmarking and evaluation work exploring RAG architectures and agent memory.
+          </Paragraph>
+          <Products items={filteredResearch} />
+        </FadeIn>
+      )}
     </Container>
   );
 }
