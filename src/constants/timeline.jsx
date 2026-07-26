@@ -47,9 +47,9 @@ export const timeline = [
     date: "Sep 2023 – Jan 2025",
     description: "Boston, Massachusetts, USA",
     logo: "🏛️",
-    skills: ["ML", "Data Analytics", "Neural Networks", "AI"],
+    skills: [],
     responsibilities: [
-      "Coursework: Foundations of Analytics, Data Visualization & Machine Learning, Analysis of Algorithms, Web Mining & Graph Analytics, Data Mining, Advanced ML & Neural Networks.",
+      "Course Work: Deep Learning, Data Structures & Algorithms, Machine Learning & AI, Database Management System.",
       "Graduate Research Assistant at Faculty of Computing & Data Sciences (CS dept.)",
       "Specialized in AI/ML, healthcare analytics, and big data systems.",
     ],
