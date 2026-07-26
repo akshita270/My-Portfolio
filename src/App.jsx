@@ -10,6 +10,7 @@ import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ResumePage from "./pages/ResumePage";
 import ContactPage from "./pages/ContactPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import NotFound from "./pages/NotFound";
 
 const PageWrapper = ({ children }) => (
   <motion.div
@@ -57,6 +58,7 @@ function App() {
               <Route path="/articles" element={<PageWrapper><ArticlesPage /></PageWrapper>} />
               <Route path="/resume" element={<PageWrapper><ResumePage /></PageWrapper>} />
               <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+              <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
             </Routes>
           </AnimatePresence>
           <Footer />

@@ -9,6 +9,13 @@ import { useTypewriter } from "../hooks/useTypewriter";
 
 const skills = ["RAG", "LLMs", "FastAPI", "Python", "Agentic AI", "Healthcare AI"];
 
+const stats = [
+  { value: "7+", label: "Projects" },
+  { value: "2", label: "Articles" },
+  { value: "1+", label: "Year Experience" },
+  { value: "MS", label: "Degree" },
+];
+
 function SpotlightCard({ children, className = "", style = {} }) {
   const cardRef = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0, visible: false });
@@ -48,6 +55,20 @@ export default function Home() {
 
   return (
     <Container>
+      {/* Open to Work banner */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold"
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+        </span>
+        Open to AI Engineer roles
+      </motion.div>
+
       <motion.span
         className="text-4xl inline-block"
         initial={{ scale: 0, opacity: 0 }}
@@ -120,6 +141,24 @@ export default function Home() {
           </div>
         </FadeIn>
       </div>
+
+      {/* Stats bar */}
+      <FadeIn delay={0.2}>
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + i * 0.08, duration: 0.35 }}
+              className="flex flex-col items-center justify-center py-4 rounded-xl border border-neutral-200 bg-neutral-50 hover:bg-white hover:shadow-md transition"
+            >
+              <span className="text-2xl font-black text-neutral-900">{stat.value}</span>
+              <span className="text-xs text-neutral-500 mt-0.5 font-medium">{stat.label}</span>
+            </motion.div>
+          ))}
+        </div>
+      </FadeIn>
 
       {/* About Me */}
       <FadeIn delay={0} className="mt-16">
