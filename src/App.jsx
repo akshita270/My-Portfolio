@@ -92,10 +92,10 @@ function App() {
   }, [dark]);
 
   return (
-    <div className="flex antialiased min-h-screen bg-gray-100">
+    <div className="flex antialiased min-h-screen app-shell">
       <Sidebar />
-      <div className="lg:pl-2 lg:pt-2 bg-gray-100 flex-1">
-        <div className="flex-1 bg-white min-h-screen lg:rounded-tl-xl border border-transparent lg:border-neutral-200 overflow-hidden">
+      <div className="lg:pl-2 lg:pt-2 app-shell flex-1">
+        <div className="flex-1 app-surface min-h-screen lg:rounded-tl-xl border border-transparent lg:border-neutral-200 overflow-hidden">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />

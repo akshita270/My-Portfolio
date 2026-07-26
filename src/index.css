@@ -1,8 +1,33 @@
 @import "tailwindcss";
 
+/* Enable data-theme="dark" as the dark variant trigger */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
   --color-primary: #262626;
   --color-secondary: #737373;
+}
+
+/* CSS custom properties for theming */
+:root {
+  --bg-shell: #f3f4f6;
+  --bg-surface: #ffffff;
+  --bg-card: #f9fafb;
+  --border-color: #e5e7eb;
+  --text-primary: #171717;
+  --text-secondary: #737373;
+  --text-muted: #a3a3a3;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-shell: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-card: #1e293b;
+  --border-color: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
 }
 
 html {
@@ -15,9 +40,106 @@ html {
 
 body {
   margin: 0;
+  background-color: var(--bg-shell);
+  color: var(--text-primary);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Shell layout uses CSS vars via inline style overrides */
+.app-shell {
+  background-color: var(--bg-shell) !important;
+}
+
+.app-surface {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Sidebar dark mode */
+[data-theme="dark"] nav,
+[data-theme="dark"] aside {
+  background-color: var(--bg-shell) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] nav a,
+[data-theme="dark"] aside a,
+[data-theme="dark"] aside p,
+[data-theme="dark"] aside span {
+  color: var(--text-secondary) !important;
+}
+
+/* Generic dark overrides */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .border-neutral-100,
+[data-theme="dark"] .border-neutral-200,
+[data-theme="dark"] .border-neutral-300 {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .text-neutral-900 { color: var(--text-primary) !important; }
+[data-theme="dark"] .text-neutral-800 { color: var(--text-primary) !important; }
+[data-theme="dark"] .text-neutral-700 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-neutral-600 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-neutral-500 { color: var(--text-muted) !important; }
+[data-theme="dark"] .text-neutral-400 { color: var(--text-muted) !important; }
+[data-theme="dark"] .text-secondary    { color: var(--text-secondary) !important; }
+
+[data-theme="dark"] .bg-neutral-50,
+[data-theme="dark"] .bg-gray-50 {
+  background-color: #273549 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .hover\:bg-white:hover {
+  background-color: #334155 !important;
+}
+
+/* Skill/stack pill tags */
+[data-theme="dark"] span.border-neutral-200,
+[data-theme="dark"] span.border-neutral-300 {
+  background-color: #273549 !important;
+  border-color: #475569 !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Buttons */
+[data-theme="dark"] button.bg-white {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: var(--text-primary) !important;
+}
+
+/* Card / section borders */
+[data-theme="dark"] footer {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] footer p,
+[data-theme="dark"] footer a,
+[data-theme="dark"] footer span {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] footer .font-semibold {
+  color: var(--text-primary) !important;
 }
