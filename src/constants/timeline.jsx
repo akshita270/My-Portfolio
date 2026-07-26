@@ -1,16 +1,15 @@
 export const timeline = [
   {
     company: "KareXpert",
-    title: "Data Analyst & AI Engineer",
+    title: "AI Engineer",
     date: "Sep 2025 – Present",
     description: "Delhi, India · Full-time",
     logo: "🏥",
-    skills: ["FastAPI", "RAG", "LangChain", "OpenAI", "Python", "NLP"],
+    skills: ["FastAPI", "Python", "RAG", "Gemini API", "OpenAI", "Qdrant"],
     responsibilities: [
-      "Developing a RAG-based system for intelligent retrieval from large volumes of clinical and operational healthcare records — designing document ingestion pipelines, optimizing chunking strategies, and fine-tuning embedding models.",
-      "Iterating on prompt engineering and vector store integration to surface the most contextually relevant clinical information before passing it to the LLM, reducing hallucinations.",
-      "Building an NLP pipeline for medical transcription — converting doctor-patient voice interactions into structured clinical notes using ASR and language models, with NER for medical terms and ICD-10 code extraction.",
-      "Designing the document structuring layer that transforms raw transcribed text into EHR-compatible formats, processing 100+ clinical encounters daily.",
+      "Developed backend services and REST APIs using Python and FastAPI for KareXpert's AI-Powered Business Intelligence platform, enabling self-service dashboard creation and embedded analytics while replacing Microsoft Power BI and eliminating recurring licensing costs of approximately ₹70K–80K per month.",
+      "Designed and implemented an AI-powered Chart Builder in BI Tool using the Gemini API, engineering prompt workflows, LLM response validation, and backend orchestration to generate interactive visualizations from natural-language prompts, reducing dashboard creation time by 75%.",
+      "Built a Retrieval-Augmented Generation (RAG) chatbot using Python, FastAPI, Qdrant, and OpenAI APIs, implementing semantic retrieval, prompt engineering, and response orchestration to enable conversational access to project tasks, documentation, and workflow insights.",
     ],
   },
   {

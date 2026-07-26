@@ -6,6 +6,8 @@ export const products = [
     description:
       "Ask questions about your data in plain English and get back a live SQL query, results table, and auto-generated chart — no SQL knowledge required. A full-stack, multi-tenant platform where each user gets an isolated workspace for their own CSV datasets alongside a shared demo database.",
     thumbnail: "🗄️",
+    image: "/images/projects/askql.png",
+    contain: true,
     color: "#6366f1",
     period: "2026",
     stack: ["FastAPI", "React", "PostgreSQL", "SQLite", "Google Cloud Run", "GCS", "Vercel", "OpenAI"],
