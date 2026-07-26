@@ -93,6 +93,7 @@ a {
 }
 
 [data-theme="dark"] .text-neutral-900 { color: var(--text-primary) !important; }
+[data-theme="dark"] .text-primary { color: var(--text-primary) !important; }
 [data-theme="dark"] .text-neutral-800 { color: var(--text-primary) !important; }
 [data-theme="dark"] .text-neutral-700 { color: var(--text-secondary) !important; }
 [data-theme="dark"] .text-neutral-600 { color: var(--text-secondary) !important; }
