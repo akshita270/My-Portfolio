@@ -11,29 +11,6 @@ const ArrowIcon = () => (
 export const SingleProduct = ({ product }) => {
   return (
     <div className="py-10 max-w-3xl">
-      {/* Hero image / thumbnail */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="relative rounded-2xl overflow-hidden h-[220px] md:h-[320px] flex items-center justify-center text-8xl"
-        style={{ background: `linear-gradient(135deg, ${product.color}22 0%, ${product.color}08 100%)` }}
-      >
-        <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: product.color }} />
-        {product.image ? (
-          <img
-            src={product.image}
-            alt={product.title}
-            className={`w-full h-full ${product.contain ? "object-contain p-8" : "object-cover object-top"}`}
-          />
-        ) : (
-          <span>{product.thumbnail}</span>
-        )}
-        <div className="absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-white/80 backdrop-blur-sm text-neutral-500 border border-neutral-200">
-          {product.period}
-        </div>
-      </motion.div>
-
       {/* Title + stack */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
