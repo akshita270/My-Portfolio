@@ -150,8 +150,8 @@ export const products = [
     description:
       "An autonomous multi-agent system for financial data analysis — one agent pulls live stock prices, fundamentals, and analyst recommendations while a second searches the web for the latest market news, with a Streamlit UI to query both at once.",
     thumbnail: "📈",
-    image: "/images/projects/financial-agent.png",
-    contain: true,
+    image: "/images/projects/financial-agent.svg",
+    contain: false,
     color: "#10b981",
     period: "2025",
     live: "https://financial-agent-9mqzctk8pzyj3vbaxdz26t.streamlit.app",
