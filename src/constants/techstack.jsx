@@ -1,9 +1,27 @@
-export const techStack = [
-  "Python", "SQL", "LangChain", "RAG", "GPT-4o", "OpenAI API",
-  "Agentic AI", "Vector Databases", "FAISS", "Neo4j", "HuggingFace", "LoRA", "PEFT",
-  "PyTorch", "TensorFlow", "FastAPI", "Tableau",
-  "Power BI", "MongoDB",
+export const techStackCategories = [
+  {
+    label: "Languages",
+    icon: "🧑‍💻",
+    items: ["Python", "SQL", "JavaScript"],
+  },
+  {
+    label: "AI / ML",
+    icon: "🤖",
+    items: ["LangChain", "RAG", "GPT-4o", "OpenAI API", "Agentic AI", "HuggingFace", "LoRA", "PEFT", "PyTorch", "TensorFlow", "Vector Databases", "FAISS"],
+  },
+  {
+    label: "Backend & Infra",
+    icon: "⚙️",
+    items: ["FastAPI", "MongoDB", "Neo4j"],
+  },
+  {
+    label: "Analytics & BI",
+    icon: "📊",
+    items: ["Tableau", "Power BI"],
+  },
 ];
+
+export const techStack = techStackCategories.flatMap((c) => c.items);
 
 export const certifications = [
   { title: "Statistics for Genomic Data Science", issuer: "Johns Hopkins University", date: "Aug 2025" },

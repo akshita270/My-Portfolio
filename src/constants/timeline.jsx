@@ -4,6 +4,8 @@ export const timeline = [
     title: "Data Analyst & AI Engineer",
     date: "Sep 2025 – Present",
     description: "Delhi, India · Full-time",
+    logo: "🏥",
+    skills: ["FastAPI", "RAG", "LangChain", "OpenAI", "Python", "NLP"],
     responsibilities: [
       "Developing a RAG-based system for intelligent retrieval from large volumes of clinical and operational healthcare records — designing document ingestion pipelines, optimizing chunking strategies, and fine-tuning embedding models.",
       "Iterating on prompt engineering and vector store integration to surface the most contextually relevant clinical information before passing it to the LLM, reducing hallucinations.",
@@ -16,6 +18,8 @@ export const timeline = [
     title: "Graduate Research Assistant",
     date: "Aug 2024 – Dec 2024",
     description: "Boston, MA, USA · Part-time",
+    logo: "🎓",
+    skills: ["LLMs", "RAG", "Deep Learning", "Research"],
     responsibilities: [
       "Collaborated with CS department researchers on AI and retrieval-based system concepts.",
       "Gained early exposure to the foundations of LLMs and RAG pipelines that shaped current professional focus and projects.",
@@ -28,6 +32,8 @@ export const timeline = [
     title: "Data Science Intern",
     date: "Sep 2022 – Jan 2023",
     description: "Delhi, India · Internship",
+    logo: "💡",
+    skills: ["Python", "SQL", "Machine Learning", "Tableau", "EHR"],
     responsibilities: [
       "Leveraged Python, SQL, and machine learning algorithms (regression, clustering) to analyze 15,000+ Electronic Health Records (EHRs).",
       "Uncovered significant trends that boosted precision medicine adoption by 20% and reduced patient stress by 15%.",
@@ -40,6 +46,8 @@ export const timeline = [
     title: "Master of Science — Applied Data Analytics",
     date: "Sep 2023 – Jan 2025",
     description: "Boston, Massachusetts, USA",
+    logo: "🏛️",
+    skills: ["ML", "Data Analytics", "Neural Networks", "AI"],
     responsibilities: [
       "Coursework: Foundations of Analytics, Data Visualization & Machine Learning, Analysis of Algorithms, Web Mining & Graph Analytics, Data Mining, Advanced ML & Neural Networks.",
       "Graduate Research Assistant at Faculty of Computing & Data Sciences (CS dept.)",
@@ -51,6 +59,8 @@ export const timeline = [
     title: "Bachelor of Technology — Computer Science & Engineering",
     date: "Sep 2019 – Jul 2023",
     description: "Delhi, India",
+    logo: "🎓",
+    skills: ["DSA", "DBMS", "OOP", "Computer Networks"],
     responsibilities: [
       "Coursework: Data Structures & Algorithms, DBMS, OOP, Operating Systems, Computer Networks, Software Engineering.",
       "Secured 2nd Prize in \"Sell Your Way\" product marketing competition (MBA Dept.)",
