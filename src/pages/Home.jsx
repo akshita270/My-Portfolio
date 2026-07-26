@@ -145,24 +145,6 @@ export default function Home() {
             style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}
           >
             <div className="p-6 md:p-8 flex flex-col gap-5">
-              {/* photo + quote row */}
-              <div className="flex items-start gap-4">
-                <img
-                  src="/images/akshita-profile.jpg"
-                  alt="Akshita Jain"
-                  className="w-16 h-16 rounded-full object-cover object-top flex-shrink-0 border-2 border-white/20"
-                />
-                <div className="flex flex-col justify-center">
-                  <p className="text-white font-semibold text-sm">Akshita Jain</p>
-                  <p className="text-white/50 text-xs mt-0.5">AI Engineer · KareXpert · Boston University</p>
-                  <p className="text-white/40 text-xs italic mt-2">
-                    &quot;Great AI systems are built on top of reliable data.&quot;
-                  </p>
-                </div>
-              </div>
-
-              <div className="h-px bg-white/10" />
-
               <div className="flex flex-col gap-4 text-sm text-white/80 leading-relaxed">
                 <p>
                   I&apos;m an AI Engineer passionate about building intelligent systems powered by Large Language Models
