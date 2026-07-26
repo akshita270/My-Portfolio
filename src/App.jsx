@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sidebar } from "./components/Sidebar";
@@ -22,6 +22,53 @@ const PageWrapper = ({ children }) => (
     {children}
   </motion.div>
 );
+
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+  const onScroll = useCallback(() => {
+    const el = document.documentElement;
+    const scrolled = el.scrollTop || document.body.scrollTop;
+    const total = el.scrollHeight - el.clientHeight;
+    setProgress(total > 0 ? (scrolled / total) * 100 : 0);
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-transparent">
+      <div
+        className="h-full bg-gradient-to-r from-sky-500 via-violet-500 to-indigo-500 transition-all duration-75"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-28 right-4 lg:bottom-20 lg:right-6 z-50 h-9 w-9 rounded-full bg-white border border-neutral-200 shadow-md flex items-center justify-center hover:shadow-lg transition-all text-neutral-600 hover:text-neutral-900"
+          title="Back to top"
+        >
+          ↑
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+}
 
 function DarkModeToggle({ dark, toggle }) {
   return (
@@ -64,6 +111,8 @@ function App() {
           <Footer />
         </div>
       </div>
+      <ScrollProgressBar />
+      <BackToTop />
       <DarkModeToggle dark={dark} toggle={() => setDark((d) => !d)} />
     </div>
   );

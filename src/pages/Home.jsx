@@ -55,20 +55,6 @@ export default function Home() {
 
   return (
     <Container>
-      {/* Open to Work banner */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold"
-      >
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-        </span>
-        Open to AI Engineer roles
-      </motion.div>
-
       <motion.span
         className="text-4xl inline-block"
         initial={{ scale: 0, opacity: 0 }}
