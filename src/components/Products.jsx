@@ -90,7 +90,7 @@ export const Products = ({ items = allProducts }) => {
 
               {/* Stack tags */}
               <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-neutral-100">
-                {product.stack?.slice(0, 5).map((stack) => (
+                {product.stack?.map((stack) => (
                   <span
                     key={stack}
                     className="text-[11px] font-medium px-2 py-0.5 rounded-full border border-neutral-200 text-neutral-600 bg-neutral-50"
@@ -98,11 +98,6 @@ export const Products = ({ items = allProducts }) => {
                     {stack}
                   </span>
                 ))}
-                {product.stack?.length > 5 && (
-                  <span className="text-[11px] font-medium px-2 py-0.5 rounded-full border border-neutral-200 text-neutral-400 bg-neutral-50">
-                    +{product.stack.length - 5}
-                  </span>
-                )}
               </div>
             </div>
           </Link>

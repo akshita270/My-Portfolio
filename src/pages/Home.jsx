@@ -89,20 +89,6 @@ export default function Home() {
             </Paragraph>
           </FadeIn>
 
-          {/* CTA */}
-          <FadeIn delay={0.15}>
-            <div className="flex flex-wrap gap-3 mt-6">
-              <Link
-                to="/projects"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-              >
-                View Projects
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />
-                </svg>
-              </Link>
-            </div>
-          </FadeIn>
         </div>
 
         {/* Profile photo */}
@@ -161,25 +147,22 @@ export default function Home() {
             <div className="p-6 md:p-8 flex flex-col gap-4">
               <div className="flex flex-col gap-3.5 text-sm text-white/80 leading-relaxed">
                 <p>
-                  I&apos;m an AI Engineer who builds things that ship — not demos. My work spans{" "}
-                  <span className="text-white font-semibold">RAG systems</span>,{" "}
-                  <span className="text-white font-semibold">multi-agent pipelines</span>, and{" "}
-                  <span className="text-white font-semibold">LLM-powered analytics</span>{" "}
-                  for healthcare, where the stakes are real.
+                  I&apos;m an AI Engineer driven by curiosity — the kind that makes me want to understand how a new AI technology works, experiment with it, break it, and eventually find a way to build something useful with it.
                 </p>
                 <p>
-                  At <span className="font-semibold text-white">KareXpert</span>, I designed an AI BI platform
-                  that eliminated our Microsoft Power BI dependency — saving ₹70K–80K/month — and built a
-                  RAG chatbot that answers natural-language queries over live project data.
+                  My interests span <span className="text-white font-semibold">LLMs, RAG, agentic AI, multi-agent systems, LLM evaluation, and AI application engineering</span>. I enjoy exploring new models, frameworks, architectures, and developer tools, but I&apos;m equally interested in what happens beyond the model — retrieval quality, orchestration, latency, scalability, evaluation, reliability, and the engineering required to make AI actually work in production.
                 </p>
                 <p>
-                  Before that, I completed my{" "}
-                  <span className="font-semibold text-white">M.S. in Applied Data Analytics at Boston University</span>{" "}
-                  and worked as a Graduate Research Assistant in the CS department, where I got deep on
-                  LLM evaluation, agentic systems, and retrieval architectures.
+                  At <span className="text-white font-semibold">KareXpert</span>, I&apos;ve worked on AI-powered analytics and healthcare applications, building systems that combine LLMs with real-world data and backend infrastructure. I&apos;ve built RAG-based applications, AI-driven BI tools, natural-language analytics, and intelligent workflows designed to solve problems that traditional software alone couldn&apos;t easily address.
                 </p>
                 <p>
-                  I care about the last mile: systems that are fast, trustworthy, and actually used.
+                  My M.S. in Applied Data Analytics from Boston University gave me a strong foundation in data, machine learning, and experimentation, while my research experience pushed me deeper into <span className="text-white font-semibold">LLM evaluation, retrieval architectures, and agentic workflows</span>.
+                </p>
+                <p>
+                  What excites me most about AI is how quickly the field evolves. There is always a new model, framework, technique, or idea worth understanding. I enjoy staying close to that evolution — not just following what&apos;s new, but <span className="text-white font-semibold">building with it, questioning it, and figuring out where it can create real value</span>.
+                </p>
+                <p>
+                  For me, the goal isn&apos;t to build AI demos. It&apos;s to build systems that are <span className="text-white font-semibold">useful, reliable, fast, and actually used</span>.
                 </p>
               </div>
             </div>
