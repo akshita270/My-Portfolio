@@ -1,5 +1,32 @@
 export const products = [
   {
+    href: "https://github.com/akshita270/sehatrx",
+    live: "https://sehatrx.vercel.app",
+    title: "SehatRx — AI-Powered Consultation to Prescription Platform",
+    description:
+      "A full-stack healthcare platform that listens to doctor-patient consultations, instantly transcribes them using AI, drafts structured prescriptions, and delivers them to the patient's portal the moment the doctor approves — eliminating paperwork entirely.",
+    thumbnail: "🏥",
+    image: "/images/projects/sehatrx.svg",
+    contain: false,
+    color: "#0d9488",
+    period: "2026",
+    stack: ["React", "FastAPI", "Python", "OpenAI Whisper", "JWT", "Vercel"],
+    slug: "sehatrx",
+    featured: true,
+    highlights: [
+      "End-to-end workflow: doctor records consultation audio → AI transcribes in real time → LLM drafts a structured prescription → doctor reviews and approves → prescription instantly appears in patient portal",
+      "Role-based access for three user types: Doctor (record, review, approve), Patient (view prescriptions), and Family (view family member prescriptions)",
+      "AI transcription powered by OpenAI Whisper with LLM-based prescription structuring — extracts diagnosis, medications, dosage, and instructions from free-form speech",
+      "JWT-authenticated REST API backend with FastAPI; React frontend deployed on Vercel with real-time prescription delivery",
+    ],
+    engineeringNotes: [
+      {
+        title: "Removing claim codes without reopening the account-takeover risk",
+        body: "Originally required a claim code to link a self-registered patient account to a doctor-created record, to prevent account takeover by anyone who knew a patient's email. In practice this broke onboarding for elderly patients without email, and a separate gap — no dedup check when doctors added a new patient — caused the same person to end up as two disconnected database rows, so a prescription the doctor sent was invisible from the patient's own login. Removed claim codes entirely and replaced them with phone-or-email matching plus automatic record reuse at intake, fixing the onboarding friction and the duplicate-record bug's root cause in one pass.",
+      },
+    ],
+  },
+  {
     href: "https://github.com/akshita270/askql",
     live: "https://lnkd.in/gabgdR3i",
     title: "AskQL — Multi-Tenant Text-to-SQL Analytics Platform",
