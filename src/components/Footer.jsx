@@ -29,7 +29,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-xs text-neutral-400">
-            © {new Date().getFullYear()} · Built with React & Framer Motion
+            © {new Date().getFullYear()} Akshita Jain · Built with React & Vite
           </p>
         </div>
       </div>

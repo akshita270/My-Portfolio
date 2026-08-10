@@ -1,6 +1,5 @@
 import { useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Container } from "../components/Container";
 import { Heading } from "../components/Heading";
 import { Paragraph } from "../components/Paragraph";
@@ -50,7 +49,8 @@ function SpotlightCard({ children, className = "", style = {} }) {
 }
 
 export default function Home() {
-  const { displayed, done } = useTypewriter("Hello, I'm Akshita", 55, 300);
+  const FULL_TEXT = "Hello, I'm Akshita";
+  const { displayed, done } = useTypewriter(FULL_TEXT, 55, 300);
 
   return (
     <Container>
@@ -59,12 +59,14 @@ export default function Home() {
       {/* Hero */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mt-2">
         <div className="flex-1">
-          <Heading className="font-black min-h-[1.2em]">
-            {displayed}
-            {!done && (
-              <span className="inline-block w-[2px] h-[1em] bg-current align-middle ml-0.5 animate-pulse" />
-            )}
-          </Heading>
+          <div style={{ minHeight: "3.5rem" }}>
+            <Heading className="font-black">
+              {displayed}
+              {!done && (
+                <span className="inline-block w-[2px] h-[0.85em] bg-current align-middle ml-0.5 animate-pulse" />
+              )}
+            </Heading>
+          </div>
 
           {/* Live indicator */}
           <FadeIn delay={0.05}>
@@ -87,6 +89,12 @@ export default function Home() {
               that ship to real users. Currently at KareXpert replacing Microsoft Power BI with an AI BI platform
               that saves ₹70K–80K/month in licensing.
             </Paragraph>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+            >
+              View My Work <span className="text-base">→</span>
+            </Link>
           </FadeIn>
 
         </div>

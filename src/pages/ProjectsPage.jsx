@@ -58,13 +58,13 @@ export default function ProjectsPage() {
       </div>
 
       {showMain && (
-        <FadeIn key={`main-${active}`}>
+        <div key={`main-${active}`}>
           <Products items={filteredMain} />
-        </FadeIn>
+        </div>
       )}
 
       {showResearch && (
-        <FadeIn key={`research-${active}`} className="mt-16">
+        <div key={`research-${active}`} className="mt-16">
           <div className="flex items-center gap-3 mb-2">
             <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl">
               Research Projects
@@ -77,7 +77,21 @@ export default function ProjectsPage() {
             Rigorous evaluation work on RAG architectures and agent memory systems.
           </Paragraph>
           <Products items={filteredResearch} />
-        </FadeIn>
+        </div>
+      )}
+
+      {!showMain && !showResearch && (
+        <div className="flex flex-col items-center justify-center py-24 text-center gap-3">
+          <span className="text-4xl">🔍</span>
+          <p className="text-base font-semibold text-neutral-700">No projects match this filter</p>
+          <p className="text-sm text-neutral-400">Try "All" to see everything</p>
+          <button
+            onClick={() => setActive("All")}
+            className="mt-2 text-sm font-semibold px-4 py-1.5 rounded-full border border-neutral-200 bg-white hover:border-neutral-400 hover:shadow-sm transition-all"
+          >
+            Show all projects
+          </button>
+        </div>
       )}
     </Container>
   );
