@@ -1,5 +1,73 @@
+import { useState } from "react";
 import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
+
+function DifferentiatorsCard({ items }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mt-6">
+      {!open ? (
+        /* Closed state — single card */
+        <button
+          onClick={() => setOpen(true)}
+          className="w-full text-left rounded-2xl overflow-hidden cursor-pointer group transition-all duration-200 hover:scale-[1.01] hover:shadow-xl"
+          style={{ background: "linear-gradient(135deg, #0c1a2e 0%, #0f3460 60%, #0c1a2e 100%)" }}
+        >
+          <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #0d9488, #38bdf8)" }} />
+          <div className="p-6 md:p-8 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">✨</span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-1">Click to reveal</p>
+                <p className="text-lg font-bold text-white">Why SehatRx?</p>
+              </div>
+            </div>
+            <span className="text-teal-400 text-2xl group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </button>
+      ) : (
+        /* Open state — 3 flash cards side by side */
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="text-base">✨</span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal-600">Why SehatRx?</p>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              className="text-xs text-neutral-400 hover:text-neutral-600 transition px-2 py-1 rounded hover:bg-neutral-100"
+            >
+              ✕ collapse
+            </button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {items.map((d, i) => (
+              <div
+                key={d.title}
+                className="rounded-2xl overflow-hidden flex flex-col"
+                style={{
+                  background: i === 0
+                    ? "linear-gradient(160deg, #0c1a2e, #0f3460)"
+                    : i === 1
+                    ? "linear-gradient(160deg, #0f2027, #0d9488aa, #0c1a2e)"
+                    : "linear-gradient(160deg, #0c1a2e, #1e3a5f)",
+                }}
+              >
+                <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #0d9488, #38bdf8)" }} />
+                <div className="p-5 flex flex-col gap-3 flex-1">
+                  <span className="text-2xl">{d.icon}</span>
+                  <p className="text-sm font-semibold text-teal-200 leading-snug">{d.title}</p>
+                  <p className="text-xs text-teal-100/65 leading-relaxed">{d.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const ArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform">
@@ -44,31 +112,9 @@ export const SingleProduct = ({ product }) => {
         </div>
       )}
 
-      {/* Differentiators / USP card */}
+      {/* Differentiators / USP — flip-open flash cards */}
       {product.differentiators?.length > 0 && (
-        <div
-          className="mt-6 rounded-2xl overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #0c1a2e 0%, #0f3460 60%, #0c1a2e 100%)" }}
-        >
-          <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #0d9488, #38bdf8)" }} />
-          <div className="p-6 md:p-8">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-base">✨</span>
-              <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">Why SehatRx?</p>
-            </div>
-            <div className="space-y-6">
-              {product.differentiators.map((d) => (
-                <div key={d.title} className="flex gap-3">
-                  <span className="text-xl flex-shrink-0 mt-0.5">{d.icon}</span>
-                  <div>
-                    <p className="text-sm font-semibold text-teal-200 mb-1">{d.title}</p>
-                    <p className="text-sm text-teal-100/70 leading-relaxed">{d.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <DifferentiatorsCard items={product.differentiators} />
       )}
 
       {/* Engineering Notes */}
