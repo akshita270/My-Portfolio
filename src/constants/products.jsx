@@ -6,8 +6,8 @@ export const products = [
     description:
       "A full-stack healthcare platform that listens to doctor-patient consultations, instantly transcribes them using AI, drafts structured prescriptions, and delivers them to the patient's portal the moment the doctor approves — eliminating paperwork entirely.",
     thumbnail: "🏥",
-    image: "/images/projects/sehatrx.svg",
-    contain: false,
+    image: "/images/projects/sehatrx.png",
+    contain: true,
     color: "#0d9488",
     period: "2026",
     stack: ["React", "FastAPI", "Python", "OpenAI Whisper", "JWT", "Vercel"],

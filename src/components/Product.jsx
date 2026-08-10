@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
 
@@ -12,12 +11,7 @@ export const SingleProduct = ({ product }) => {
   return (
     <div className="py-10 max-w-3xl">
       {/* Title + stack */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.4 }}
-        className="mt-8"
-      >
+      <div className="mt-8">
         <Heading className="font-black mb-3">{product.title}</Heading>
         <div className="flex flex-wrap gap-2 mb-5">
           {product.stack?.map((s) => (
@@ -27,14 +21,11 @@ export const SingleProduct = ({ product }) => {
           ))}
         </div>
         <Paragraph className="max-w-2xl">{product.description}</Paragraph>
-      </motion.div>
+      </div>
 
       {/* Highlights — dark card */}
       {product.highlights?.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
+        <div
           className="mt-8 rounded-2xl overflow-hidden"
           style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}
         >
@@ -50,58 +41,55 @@ export const SingleProduct = ({ product }) => {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </div>
       )}
 
-      {/* Engineering Notes — light card, contrasts with dark Highlights block */}
+      {/* Engineering Notes */}
       {product.engineeringNotes?.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.4 }}
-          className="mt-6 rounded-2xl border-2 border-neutral-200 bg-neutral-50 p-6 md:p-8"
+        <div
+          className="mt-6 rounded-2xl overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #451a03 0%, #78350f 60%, #451a03 100%)" }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-4">
-            Engineering Notes
-          </p>
-          <div className="space-y-5">
-            {product.engineeringNotes.map((note) => (
-              <div key={note.title}>
-                <p className="text-sm font-semibold text-neutral-900 mb-1.5">{note.title}</p>
-                <p className="text-sm text-neutral-600 leading-relaxed">{note.body}</p>
-              </div>
-            ))}
+          <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #f59e0b, #ef4444)" }} />
+          <div className="p-6 md:p-8">
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-base">🐛</span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-amber-400">Engineering Notes</p>
+            </div>
+            <div className="space-y-5">
+              {product.engineeringNotes.map((note) => (
+                <div key={note.title}>
+                  <p className="text-sm font-semibold text-amber-200 mb-2">{note.title}</p>
+                  <p className="text-sm text-amber-100/70 leading-relaxed">{note.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Links */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="flex flex-wrap gap-3 mt-8"
-      >
+      <div className="flex flex-wrap gap-3 mt-8">
         {product.href && (
           <a href={product.href} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition bg-white border border-neutral-200 text-primary hover:shadow-md text-sm font-medium px-4 py-2">
+            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition bg-white border border-neutral-300 text-neutral-800 hover:shadow-md text-sm font-semibold px-5 py-2.5">
             View on GitHub <ArrowIcon />
           </a>
         )}
         {product.live && (
           <a href={product.live} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition text-white text-sm font-medium px-4 py-2"
+            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition text-white text-sm font-semibold px-5 py-2.5"
             style={{ background: product.color }}>
             Live Demo <ArrowIcon />
           </a>
         )}
         {product.blog && (
           <a href={product.blog} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition bg-white border border-neutral-200 text-primary hover:shadow-md text-sm font-medium px-4 py-2">
+            className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition bg-white border border-neutral-300 text-neutral-800 hover:shadow-md text-sm font-semibold px-5 py-2.5">
             Read Article <ArrowIcon />
           </a>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 };

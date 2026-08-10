@@ -47,7 +47,6 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 /* Shell layout uses CSS vars via inline style overrides */
@@ -151,6 +150,45 @@ a {
   color: var(--text-muted) !important;
 }
 
-[data-theme="dark"] footer .font-semibold {
+[data-theme="dark"] footer .font-semibold,
+[data-theme="dark"] footer .font-bold {
   color: var(--text-primary) !important;
+}
+
+/* Work history cards in dark mode */
+[data-theme="dark"] .rounded-xl.border.border-neutral-100 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Certification cards */
+[data-theme="dark"] .rounded-xl.border.border-neutral-200 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Product detail links */
+[data-theme="dark"] .rounded-full.border.border-neutral-300 {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+  color: var(--text-primary) !important;
+}
+
+/* Stack pills on project detail */
+[data-theme="dark"] span.border-2.border-neutral-300 {
+  background-color: #273549 !important;
+  border-color: #475569 !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Gradient stats cards */
+[data-theme="dark"] .bg-gradient-to-b.from-white {
+  background: linear-gradient(to bottom, #1e293b, #162032) !important;
+  border-color: #334155 !important;
+}
+
+/* Text rendering improvements */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

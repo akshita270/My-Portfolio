@@ -6,7 +6,7 @@ import { Products } from "../components/Products";
 import { FadeIn } from "../components/FadeIn";
 import { products } from "../constants/products";
 
-const tabs = ["All", "AI Systems", "Research", "Featured"];
+const tabs = ["All", "Featured", "AI Systems", "Research"];
 
 export default function ProjectsPage() {
   const [active, setActive] = useState("All");
@@ -32,9 +32,9 @@ export default function ProjectsPage() {
   return (
     <Container>
       <span className="text-4xl">🧠</span>
-      <Heading className="font-black mb-2">Projects</Heading>
-      <Paragraph className="mb-8 max-w-xl">
-        Multi-agent pipelines, genomic AI, healthcare NLP — projects that push the boundaries of what AI can do.
+      <Heading className="font-black mb-1">Projects</Heading>
+      <Paragraph className="mb-8 max-w-xl text-secondary">
+        Production AI systems, research experiments, and open-source tools — all shipped.
       </Paragraph>
 
       {/* Filter tabs */}
@@ -43,15 +43,18 @@ export default function ProjectsPage() {
           <button
             key={tab}
             onClick={() => setActive(tab)}
-            className={`text-sm font-medium px-4 py-1.5 rounded-full border transition-all duration-200 ${
+            className={`text-sm font-semibold px-4 py-1.5 rounded-full border transition-all duration-200 ${
               active === tab
-                ? "bg-neutral-900 text-white border-neutral-900"
-                : "bg-white text-secondary border-neutral-200 hover:border-neutral-400 hover:text-primary"
+                ? "bg-neutral-900 text-white border-neutral-900 shadow-md"
+                : "bg-white text-secondary border-neutral-200 hover:border-neutral-400 hover:text-primary hover:shadow-sm"
             }`}
           >
             {tab}
           </button>
         ))}
+        <span className="ml-auto text-xs text-neutral-400 flex items-center">
+          {filteredMain.length + filteredResearch.length} projects
+        </span>
       </div>
 
       {showMain && (
@@ -62,11 +65,16 @@ export default function ProjectsPage() {
 
       {showResearch && (
         <FadeIn key={`research-${active}`} className="mt-16">
-          <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl mb-2">
-            Research Projects
-          </Heading>
-          <Paragraph className="mb-6 max-w-xl">
-            Benchmarking and evaluation work exploring RAG architectures and agent memory.
+          <div className="flex items-center gap-3 mb-2">
+            <Heading as="h2" className="font-black text-2xl md:text-3xl lg:text-3xl">
+              Research Projects
+            </Heading>
+            <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-700 border border-sky-200">
+              Benchmarking
+            </span>
+          </div>
+          <Paragraph className="mb-6 max-w-xl text-secondary">
+            Rigorous evaluation work on RAG architectures and agent memory systems.
           </Paragraph>
           <Products items={filteredResearch} />
         </FadeIn>

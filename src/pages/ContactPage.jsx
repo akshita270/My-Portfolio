@@ -6,7 +6,7 @@ import { IconBrandLinkedin, IconBrandGithub, IconMail, IconClock } from "@tabler
 
 const links = [
   {
-    href: "https://linkedin.com/in/akshita-jain07",
+    href: "https://linkedin.com/in/akshita-jain27",
     label: "LinkedIn",
     icon: IconBrandLinkedin,
     color: "#0a66c2",

@@ -22,7 +22,7 @@ export const Sidebar = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.2, ease: "linear" }}
             exit={{ x: -200 }}
-            className="px-6 z-[100] py-10 bg-neutral-100 max-w-[14rem] lg:w-fit fixed lg:relative h-screen left-0 flex flex-col justify-between"
+            className="px-5 z-[100] py-10 bg-neutral-100 max-w-[14rem] lg:w-fit fixed lg:relative h-screen left-0 flex flex-col justify-between border-r border-neutral-200/60"
           >
             <div className="flex-1 overflow-auto">
               <SidebarHeader />
@@ -35,7 +35,7 @@ export const Sidebar = () => {
         )}
       </AnimatePresence>
       <button
-        className="fixed lg:hidden bottom-4 right-4 h-8 w-8 border border-neutral-200 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center z-50"
+        className="fixed lg:hidden bottom-4 right-4 h-9 w-9 border border-neutral-200 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center z-50 shadow-md"
         onClick={() => setOpen(!open)}
       >
         <IconLayoutSidebarRightCollapse className="h-4 w-4 text-secondary" />
@@ -49,34 +49,44 @@ const Navigation = ({ setOpen }) => {
   const isActive = (href) => pathname === href;
 
   return (
-    <div className="flex flex-col space-y-1 my-10 relative z-[100]">
+    <div className="flex flex-col space-y-0.5 my-8 relative z-[100]">
       {navlinks.map((link) => (
         <Link
           key={link.href}
           to={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={twMerge(
-            "text-secondary hover:text-primary hover:bg-white hover:shadow-md transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
-            isActive(link.href) && "bg-white shadow-lg text-primary"
+            "text-secondary hover:text-primary hover:bg-white/80 hover:shadow-sm transition-all duration-150 flex items-center space-x-2.5 py-2 px-3 rounded-lg text-sm font-medium",
+            isActive(link.href) && "bg-white shadow-md text-primary font-semibold"
           )}
         >
-          <link.icon className={twMerge("h-4 w-4 flex-shrink-0", isActive(link.href) && "text-sky-500")} />
+          <link.icon
+            className={twMerge(
+              "h-4 w-4 flex-shrink-0 text-neutral-400",
+              isActive(link.href) && "text-violet-500"
+            )}
+          />
           <span>{link.label}</span>
+          {isActive(link.href) && (
+            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
+          )}
         </Link>
       ))}
 
-      <Heading as="p" className="text-sm md:text-sm lg:text-sm pt-10 px-2">
-        Socials
-      </Heading>
+      <div className="pt-6 pb-1">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 px-3 mb-1">
+          Socials
+        </p>
+      </div>
       {socials.map((link) => (
         <a
           key={link.href}
           href={link.href}
           target="_blank"
           rel="noreferrer"
-          className="text-secondary hover:text-primary hover:bg-white hover:shadow-md transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
+          className="text-secondary hover:text-primary hover:bg-white/80 hover:shadow-sm transition-all duration-150 flex items-center space-x-2.5 py-2 px-3 rounded-lg text-sm"
         >
-          <link.icon className="h-4 w-4 flex-shrink-0" />
+          <link.icon className="h-4 w-4 flex-shrink-0 text-neutral-400" />
           <span>{link.label}</span>
         </a>
       ))}
@@ -86,17 +96,18 @@ const Navigation = ({ setOpen }) => {
 
 const SidebarHeader = () => {
   return (
-    <div className="flex space-x-2">
-      <img
-        src="/images/akshita-profile.jpg"
-        alt="Akshita Jain"
-        height="40"
-        width="40"
-        className="object-cover object-top rounded-full flex-shrink-0 h-10 w-10"
-      />
+    <div className="flex space-x-3 items-center">
+      <div className="relative">
+        <img
+          src="/images/akshita-profile.jpg"
+          alt="Akshita Jain"
+          className="object-cover object-top rounded-full flex-shrink-0 h-10 w-10 border-2 border-white shadow-sm"
+        />
+        <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-neutral-100 rounded-full" />
+      </div>
       <div className="flex text-sm flex-col">
-        <p className="font-bold text-primary">Akshita Jain</p>
-        <p className="font-light text-secondary">AI Engineer</p>
+        <p className="font-bold text-primary text-[13px]">Akshita Jain</p>
+        <p className="font-medium text-[11px] text-violet-500">AI Engineer</p>
       </div>
     </div>
   );

@@ -12,16 +12,7 @@ import ContactPage from "./pages/ContactPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import NotFound from "./pages/NotFound";
 
-const PageWrapper = ({ children }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -8 }}
-    transition={{ duration: 0.25, ease: "easeOut" }}
-  >
-    {children}
-  </motion.div>
-);
+const PageWrapper = ({ children }) => <div>{children}</div>;
 
 function ScrollProgressBar() {
   const [progress, setProgress] = useState(0);
