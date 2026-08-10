@@ -44,6 +44,33 @@ export const SingleProduct = ({ product }) => {
         </div>
       )}
 
+      {/* Differentiators / USP card */}
+      {product.differentiators?.length > 0 && (
+        <div
+          className="mt-6 rounded-2xl overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #0c1a2e 0%, #0f3460 60%, #0c1a2e 100%)" }}
+        >
+          <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #0d9488, #38bdf8)" }} />
+          <div className="p-6 md:p-8">
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-base">✨</span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">Why SehatRx?</p>
+            </div>
+            <div className="space-y-6">
+              {product.differentiators.map((d) => (
+                <div key={d.title} className="flex gap-3">
+                  <span className="text-xl flex-shrink-0 mt-0.5">{d.icon}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-teal-200 mb-1">{d.title}</p>
+                    <p className="text-sm text-teal-100/70 leading-relaxed">{d.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Engineering Notes */}
       {product.engineeringNotes?.length > 0 && (
         <div

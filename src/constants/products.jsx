@@ -19,6 +19,23 @@ export const products = [
       "AI transcription powered by OpenAI Whisper with LLM-based prescription structuring — extracts diagnosis, medications, dosage, and instructions from free-form speech",
       "JWT-authenticated REST API backend with FastAPI; React frontend deployed on Vercel with real-time prescription delivery",
     ],
+    differentiators: [
+      {
+        icon: "🗣️",
+        title: "The doctor just talks — the paperwork writes itself.",
+        body: "Instead of typing out a prescription after every patient, the doctor has a normal conversation and the app turns that into a clean, structured prescription automatically. For a doctor seeing 40+ patients a day, that's real time back.",
+      },
+      {
+        icon: "🇮🇳",
+        title: "Built for how Indian clinics actually talk.",
+        body: "It listens to real consultations — Hindi, English, or the Hindi-English mix most doctors here actually speak in — and catches every word, not just the parts said in English. The prescription comes back in Hindi too, so a patient who can't read English still gets a prescription they can actually understand, even having it read aloud to them.",
+      },
+      {
+        icon: "📱",
+        title: "No more lost or illegible prescriptions.",
+        body: "The moment the doctor sends it, it's instantly on the patient's portal — and a family member can be linked to see it too. No handwritten slip to lose, no blurry WhatsApp photo of a prescription nobody can read.",
+      },
+    ],
     engineeringNotes: [
       {
         title: "Removing claim codes without reopening the account-takeover risk",
