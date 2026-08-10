@@ -53,6 +53,28 @@ export const SingleProduct = ({ product }) => {
         </motion.div>
       )}
 
+      {/* Engineering Notes — light card, contrasts with dark Highlights block */}
+      {product.engineeringNotes?.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.4 }}
+          className="mt-6 rounded-2xl border-2 border-neutral-200 bg-neutral-50 p-6 md:p-8"
+        >
+          <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-4">
+            Engineering Notes
+          </p>
+          <div className="space-y-5">
+            {product.engineeringNotes.map((note) => (
+              <div key={note.title}>
+                <p className="text-sm font-semibold text-neutral-900 mb-1.5">{note.title}</p>
+                <p className="text-sm text-neutral-600 leading-relaxed">{note.body}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
       {/* Links */}
       <motion.div
         initial={{ opacity: 0 }}
