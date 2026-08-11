@@ -59,6 +59,7 @@ export const products = [
     stack: ["FastAPI", "React", "PostgreSQL", "SQLite", "Google Cloud Run", "GCS", "Vercel", "OpenAI"],
     slug: "askql",
     featured: true,
+    deck: "/AskQL-Deck.pdf",
     highlights: [
       "Multi-tenant architecture: each user gets an isolated workspace for uploading CSV datasets alongside a shared demo database",
       "Backend streams generated SQL token-by-token in real time with an AST-based guardrail layer that blocks unauthorized tables, non-SELECT statements, and prompt-injection attempts before any query touches the database",
