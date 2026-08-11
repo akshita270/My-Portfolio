@@ -117,29 +117,6 @@ export const SingleProduct = ({ product }) => {
         <DifferentiatorsCard items={product.differentiators} />
       )}
 
-      {/* Engineering Notes */}
-      {product.engineeringNotes?.length > 0 && (
-        <div
-          className="mt-6 rounded-2xl overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #451a03 0%, #78350f 60%, #451a03 100%)" }}
-        >
-          <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #f59e0b, #ef4444)" }} />
-          <div className="p-6 md:p-8">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-base">🐛</span>
-              <p className="text-xs font-semibold uppercase tracking-widest text-amber-400">Engineering Notes</p>
-            </div>
-            <div className="space-y-5">
-              {product.engineeringNotes.map((note) => (
-                <div key={note.title}>
-                  <p className="text-sm font-semibold text-amber-200 mb-2">{note.title}</p>
-                  <p className="text-sm text-amber-100/70 leading-relaxed">{note.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Links */}
       <div className="flex flex-wrap gap-3 mt-8">
