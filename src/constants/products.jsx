@@ -13,6 +13,7 @@ export const products = [
     stack: ["React", "FastAPI", "Python", "OpenAI Whisper", "JWT", "Vercel"],
     slug: "sehatrx",
     featured: true,
+    blog: "https://sl1nk.com/fuklxys",
     highlights: [
       "End-to-end workflow: doctor records consultation audio → AI transcribes in real time → LLM drafts a structured prescription → doctor reviews and approves → prescription instantly appears in patient portal",
       "Role-based access for three user types: Doctor (record, review, approve), Patient (view prescriptions), and Family (view family member prescriptions)",
