@@ -140,9 +140,9 @@ export const SingleProduct = ({ product }) => {
           </a>
         )}
         {product.deck && (
-          <a href={product.deck} download
+          <a href={product.deck} target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-1.5 group/button rounded-full hover:scale-105 focus:outline-none transition bg-white border border-neutral-300 text-neutral-800 hover:shadow-md text-sm font-semibold px-5 py-2.5">
-            📊 Download Deck <ArrowIcon />
+            📊 View Deck <ArrowIcon />
           </a>
         )}
       </div>
