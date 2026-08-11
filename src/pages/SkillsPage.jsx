@@ -60,10 +60,7 @@ const skillGroups = [
 
 function SkillCard({ group }) {
   return (
-    <div
-      className="rounded-2xl border overflow-hidden flex flex-col h-full"
-      style={{ borderColor: group.border, background: group.bg }}
-    >
+    <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden flex flex-col h-full">
       <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${group.color}, ${group.border})` }} />
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-4">
