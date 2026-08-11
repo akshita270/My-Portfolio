@@ -10,28 +10,6 @@ import { Badge } from "./Badge";
 
 const isMobile = () => typeof window !== "undefined" && window.innerWidth < 1024;
 
-const skillGroups = [
-  {
-    label: "Languages",
-    skills: ["Python", "JavaScript", "SQL"],
-  },
-  {
-    label: "GenAI & Agentic AI",
-    skills: ["RAG", "LangChain", "LangGraph", "CrewAI", "Embeddings", "OpenAI GPT", "Claude", "Hugging Face", "Prompt Engineering", "MCP", "LoRA / QLoRA", "LLM Evaluation"],
-  },
-  {
-    label: "Frameworks",
-    skills: ["FastAPI", "PyTorch", "TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas"],
-  },
-  {
-    label: "Databases & Viz",
-    skills: ["MySQL", "MongoDB", "Neo4j", "Redis", "ChromaDB", "FAISS", "Tableau", "Power BI"],
-  },
-  {
-    label: "DevOps & Cloud",
-    skills: ["Linux", "Git / GitHub Actions", "Docker", "Kubernetes", "AWS"],
-  },
-];
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(!isMobile());
@@ -50,7 +28,6 @@ export const Sidebar = () => {
             <div className="flex-1 overflow-y-auto">
               <SidebarHeader />
               <Navigation setOpen={setOpen} />
-              <SidebarSkills />
             </div>
             <div onClick={() => isMobile() && setOpen(false)}>
               <Badge href="/resume" text="Read Resume" />
@@ -118,47 +95,6 @@ const Navigation = ({ setOpen }) => {
   );
 };
 
-const SidebarSkills = () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="mt-2 mb-4">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg hover:bg-white/80 transition-all duration-150 group"
-      >
-        <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 group-hover:text-neutral-500">
-          Skills
-        </p>
-        <span className={`text-[10px] text-neutral-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
-          ▾
-        </span>
-      </button>
-
-      {open && (
-        <div className="mt-2 flex flex-col gap-3 px-1">
-          {skillGroups.map((group) => (
-            <div key={group.label}>
-              <p className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 px-2 mb-1.5">
-                {group.label}
-              </p>
-              <div className="flex flex-wrap gap-1 px-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-white border border-neutral-200 text-neutral-600 shadow-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
 
 const SidebarHeader = () => {
   return (

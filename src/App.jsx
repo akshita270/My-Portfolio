@@ -10,6 +10,7 @@ import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ResumePage from "./pages/ResumePage";
 import ContactPage from "./pages/ContactPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import SkillsPage from "./pages/SkillsPage";
 import NotFound from "./pages/NotFound";
 
 const PageWrapper = ({ children }) => <div>{children}</div>;
@@ -91,6 +92,7 @@ function App() {
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
               <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+              <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
               <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
               <Route path="/projects/:slug" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
               <Route path="/articles" element={<PageWrapper><ArticlesPage /></PageWrapper>} />
