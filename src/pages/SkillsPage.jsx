@@ -58,6 +58,33 @@ const skillGroups = [
   },
 ];
 
+function SkillCard({ group }) {
+  return (
+    <div
+      className="rounded-2xl border overflow-hidden flex flex-col h-full"
+      style={{ borderColor: group.border, background: group.bg }}
+    >
+      <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${group.color}, ${group.border})` }} />
+      <div className="p-5 flex flex-col flex-1">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-xl">{group.icon}</span>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: group.color }}>
+            {group.label}
+          </p>
+        </div>
+        <ul className="flex flex-col gap-2">
+          {group.skills.map((skill) => (
+            <li key={skill} className="flex items-start gap-2 text-sm text-neutral-700">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: group.color }} />
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default function SkillsPage() {
   return (
     <Container>
@@ -67,41 +94,17 @@ export default function SkillsPage() {
         Technologies and tools I work with — from LLM APIs and agent frameworks to cloud infrastructure.
       </Paragraph>
 
-      <div className="flex flex-col gap-6">
-        {skillGroups.map((group) => (
-          <div
-            key={group.label}
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: group.border, background: group.bg }}
-          >
-            {/* Header strip */}
-            <div
-              className="h-[3px]"
-              style={{ background: `linear-gradient(90deg, ${group.color}, ${group.border})` }}
-            />
-            <div className="p-5 md:p-6">
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="text-xl">{group.icon}</span>
-                <p
-                  className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: group.color }}
-                >
-                  {group.label}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-sm font-medium px-3 py-1 rounded-full border bg-white text-neutral-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-150 cursor-default"
-                    style={{ borderColor: group.border }}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* First row — 3 cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5">
+        {skillGroups.slice(0, 3).map((group) => (
+          <SkillCard key={group.label} group={group} />
+        ))}
+      </div>
+
+      {/* Second row — 2 cards centred */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:max-w-[66%] mx-auto">
+        {skillGroups.slice(3).map((group) => (
+          <SkillCard key={group.label} group={group} />
         ))}
       </div>
     </Container>
