@@ -13,7 +13,8 @@ export const products = [
     stack: ["React", "FastAPI", "Python", "OpenAI Whisper", "JWT", "Vercel"],
     slug: "sehatrx",
     featured: true,
-    blog: "https://sl1nk.com/fuklxys",
+    blog: "https://medium.com/@jakshita770/i-built-sehatrx-an-ai-prescription-app-for-indian-clinics-the-ai-was-the-easy-part-c097417b0d35",
+    deck: "/SehatRx-Deck.pptx",
     highlights: [
       "End-to-end workflow: doctor records consultation audio → AI transcribes in real time → LLM drafts a structured prescription → doctor reviews and approves → prescription instantly appears in patient portal",
       "Role-based access for three user types: Doctor (record, review, approve), Patient (view prescriptions), and Family (view family member prescriptions)",
