@@ -82,30 +82,28 @@ function CaseStudy({ cs, color }) {
       {/* Problem + Solution — side by side */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
         {/* Problem */}
-        <div className="rounded-2xl bg-rose-50 border border-rose-100 p-5 flex flex-col gap-2">
-          <span className="text-[10px] font-black tracking-[0.18em] text-rose-400 uppercase">The Problem</span>
-          <p className="text-xl font-black text-rose-900 leading-snug">{cs.problemHeadline || cs.problem}</p>
+        <div
+          className="rounded-2xl p-6 flex flex-col gap-3"
+          style={{ background: "linear-gradient(135deg, #9f1239, #be123c)" }}
+        >
+          <span className="text-[10px] font-black tracking-[0.2em] text-rose-300 uppercase">The Problem</span>
+          <p className="text-xl font-black text-white leading-snug">{cs.problemHeadline || cs.problem}</p>
           {cs.problemHeadline && (
-            <p className="text-sm text-rose-700/70 leading-relaxed">{cs.problem}</p>
+            <p className="text-sm text-rose-100/75 leading-relaxed">{cs.problem}</p>
           )}
         </div>
 
         {/* Solution */}
         <div
-          className="rounded-2xl border p-5 flex flex-col gap-2"
-          style={{ background: `${color}0d`, borderColor: `${color}25` }}
+          className="rounded-2xl p-6 flex flex-col gap-3"
+          style={{ background: `linear-gradient(135deg, ${color}cc, ${color})` }}
         >
-          <span
-            className="text-[10px] font-black tracking-[0.18em] uppercase"
-            style={{ color }}
-          >
-            The Solution
-          </span>
-          <p className="text-xl font-black leading-snug" style={{ color }}>
+          <span className="text-[10px] font-black tracking-[0.2em] text-white/60 uppercase">The Solution</span>
+          <p className="text-xl font-black text-white leading-snug">
             {cs.solutionHeadline || cs.solution}
           </p>
           {cs.solutionHeadline && (
-            <p className="text-sm leading-relaxed" style={{ color: `${color}99` }}>{cs.solution}</p>
+            <p className="text-sm text-white/70 leading-relaxed">{cs.solution}</p>
           )}
         </div>
       </div>
