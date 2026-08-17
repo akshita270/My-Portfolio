@@ -83,7 +83,7 @@ export const Products = ({ items = allProducts }) => {
 
               {/* First highlight as teaser */}
               {product.highlights?.[0] && (
-                <p className="text-xs text-neutral-500 leading-relaxed line-clamp-3 pl-3 border-l-2 border-neutral-200 italic">
+                <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l-2 border-neutral-200 italic">
                   {product.highlights[0]}
                 </p>
               )}
