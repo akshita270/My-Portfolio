@@ -69,6 +69,75 @@ function DifferentiatorsCard({ items }) {
   );
 }
 
+function CaseStudy({ cs, color }) {
+  const sections = [
+    {
+      icon: "🎯",
+      label: "The Problem",
+      content: cs.problem,
+      accent: "#ef4444",
+    },
+    {
+      icon: "💡",
+      label: "The Solution",
+      content: cs.solution,
+      accent: color,
+    },
+    {
+      icon: "⚖️",
+      label: "Why AI?",
+      content: cs.whyAI,
+      accent: "#f59e0b",
+    },
+  ];
+
+  return (
+    <div className="mt-8 space-y-4">
+      {/* Section header */}
+      <div className="flex items-center gap-3">
+        <div className="h-px flex-1 bg-neutral-200" />
+        <p className="text-xs font-bold uppercase tracking-widest text-neutral-400 px-2">Deep Dive</p>
+        <div className="h-px flex-1 bg-neutral-200" />
+      </div>
+
+      {/* Problem / Solution / Why AI */}
+      {sections.map((s) => (
+        <div key={s.label} className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
+          <div className="h-[3px]" style={{ background: s.accent }} />
+          <div className="p-5 md:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">{s.icon}</span>
+              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">{s.label}</p>
+            </div>
+            <p className="text-sm text-neutral-700 leading-relaxed">{s.content}</p>
+          </div>
+        </div>
+      ))}
+
+      {/* Tradeoffs */}
+      {cs.tradeoffs?.length > 0 && (
+        <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
+          <div className="h-[3px] bg-violet-400" />
+          <div className="p-5 md:p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-lg">🔀</span>
+              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">Tradeoffs</p>
+            </div>
+            <div className="space-y-4">
+              {cs.tradeoffs.map((t) => (
+                <div key={t.title}>
+                  <p className="text-sm font-semibold text-neutral-800 mb-1">{t.title}</p>
+                  <p className="text-sm text-neutral-600 leading-relaxed">{t.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 const ArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform">
     <path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />
@@ -117,6 +186,10 @@ export const SingleProduct = ({ product }) => {
         <DifferentiatorsCard items={product.differentiators} />
       )}
 
+      {/* Case Study — Problem / Solution / Tradeoffs / Why AI */}
+      {product.caseStudy && (
+        <CaseStudy cs={product.caseStudy} color={product.color} />
+      )}
 
       {/* Links */}
       <div className="flex flex-wrap gap-3 mt-8">

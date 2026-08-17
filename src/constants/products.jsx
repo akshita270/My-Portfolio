@@ -90,6 +90,16 @@ export const products = [
       "Final agent generates an 11-slide pitch deck outline with speaker notes, auto-converted to a downloadable .pptx via python-pptx",
       "Live SSE streaming of pipeline progress to a React frontend, backed by Supabase for run history",
     ],
+    caseStudy: {
+      problem: "First-time founders and solo builders waste weeks on work that shouldn't take weeks. Writing a market sizing section, researching competitors, building a revenue model, drafting a pitch deck — each of these is time-consuming not because it's hard, but because it's slow, repetitive, and follows a known structure. Most people either skip these steps (and walk into investor meetings underprepared) or spend money hiring consultants for boilerplate output.",
+      solution: "A 7-agent pipeline where each agent owns one piece of the startup blueprint and passes its output to the next. The user types a single idea and within minutes gets a structured document covering market research, competitor gaps, a revenue model, an MVP roadmap, an executive summary, and a downloadable pitch deck. Each agent is purpose-built for its task — not a general-purpose chatbot being asked to do everything at once.",
+      tradeoffs: [
+        { title: "Sequential pipeline vs. parallel agents", body: "Agents run one after another, not in parallel — each agent's output feeds into the next prompt as context. This produces more coherent output (the revenue model knows what the market research found) but adds latency. A parallel approach would be faster but would lose cross-agent context." },
+        { title: "Groq (Llama 3.3-70B) vs. GPT-4", body: "Groq's inference speed on Llama 3.3-70B is significantly faster than GPT-4 and the output quality is sufficient for structured business writing. The tradeoff is that Groq has tighter rate limits, so the pipeline has to be careful about burst requests across 7 back-to-back LLM calls." },
+        { title: "Fixed 7-agent structure vs. dynamic routing", body: "The pipeline always runs all 7 agents in the same order regardless of the idea. A smarter system might skip or reorder agents based on the domain. The fixed structure is simpler to debug and keeps output format predictable, which matters when the final PPTX generator needs to parse structured sections." },
+      ],
+      whyAI: "The entire value of this product is that it replaces weeks of structured but low-creativity work with minutes of LLM-powered generation. Every output — market sizing, competitor gaps, revenue projections, pitch narrative — follows patterns that an LLM trained on thousands of business documents can reproduce accurately. Without AI, this would require either a team of analysts or a founder spending nights on tasks that aren't their core skill. AI doesn't just speed it up — it makes the whole product category possible for a solo builder.",
+    },
   },
   {
     href: "https://github.com/akshita270/GeneSight",
