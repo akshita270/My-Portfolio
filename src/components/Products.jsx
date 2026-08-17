@@ -77,7 +77,7 @@ export const Products = ({ items = allProducts }) => {
                 <ArrowUpRight />
               </div>
 
-              <p className="text-sm text-secondary leading-relaxed line-clamp-3">
+              <p className="text-sm text-secondary leading-relaxed">
                 {product.description}
               </p>
 
