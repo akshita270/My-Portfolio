@@ -91,14 +91,17 @@ export const products = [
       "Live SSE streaming of pipeline progress to a React frontend, backed by Supabase for run history",
     ],
     caseStudy: {
-      problem: "First-time founders and solo builders waste weeks on work that shouldn't take weeks. Writing a market sizing section, researching competitors, building a revenue model, drafting a pitch deck — each of these is time-consuming not because it's hard, but because it's slow, repetitive, and follows a known structure. Most people either skip these steps (and walk into investor meetings underprepared) or spend money hiring consultants for boilerplate output.",
-      solution: "A 7-agent pipeline where each agent owns one piece of the startup blueprint and passes its output to the next. The user types a single idea and within minutes gets a structured document covering market research, competitor gaps, a revenue model, an MVP roadmap, an executive summary, and a downloadable pitch deck. Each agent is purpose-built for its task — not a general-purpose chatbot being asked to do everything at once.",
+      problemHeadline: "Founders waste weeks on work that shouldn't take weeks.",
+      problem: "Market sizing, competitor research, revenue modeling, pitch decks — each is slow and repetitive, not hard. Most founders either skip them and walk into investor meetings underprepared, or pay consultants for boilerplate output.",
+      solutionHeadline: "One idea → 7 agents → full startup blueprint in minutes.",
+      solution: "Each agent owns one piece of the blueprint and passes its output to the next. The user types an idea; minutes later they have market research, competitor gaps, a revenue model, MVP roadmap, executive summary, and a downloadable pitch deck.",
+      whyAIHeadline: "This product category only exists because of AI.",
+      whyAI: "Every output follows patterns an LLM trained on thousands of business documents can reproduce in seconds. Without AI, this requires either a team of analysts or a founder spending nights on tasks that aren't their core skill. AI doesn't just speed it up — it makes the whole thing possible for a solo builder.",
       tradeoffs: [
-        { title: "Sequential pipeline vs. parallel agents", body: "Agents run one after another, not in parallel — each agent's output feeds into the next prompt as context. This produces more coherent output (the revenue model knows what the market research found) but adds latency. A parallel approach would be faster but would lose cross-agent context." },
-        { title: "Groq (Llama 3.3-70B) vs. GPT-4", body: "Groq's inference speed on Llama 3.3-70B is significantly faster than GPT-4 and the output quality is sufficient for structured business writing. The tradeoff is that Groq has tighter rate limits, so the pipeline has to be careful about burst requests across 7 back-to-back LLM calls." },
-        { title: "Fixed 7-agent structure vs. dynamic routing", body: "The pipeline always runs all 7 agents in the same order regardless of the idea. A smarter system might skip or reorder agents based on the domain. The fixed structure is simpler to debug and keeps output format predictable, which matters when the final PPTX generator needs to parse structured sections." },
+        { title: "Sequential vs. parallel agents", body: "Agents run in sequence so each one's output feeds the next — the revenue model knows what market research found. Parallel would be faster but loses that cross-agent context." },
+        { title: "Groq (Llama 3.3-70B) vs. GPT-4", body: "Groq is significantly faster for structured business writing, but has tighter rate limits across 7 back-to-back LLM calls." },
+        { title: "Fixed pipeline vs. dynamic routing", body: "Always runs all 7 agents in order. Simpler to debug and keeps output format predictable — which matters when the PPTX generator needs to parse structured sections." },
       ],
-      whyAI: "The entire value of this product is that it replaces weeks of structured but low-creativity work with minutes of LLM-powered generation. Every output — market sizing, competitor gaps, revenue projections, pitch narrative — follows patterns that an LLM trained on thousands of business documents can reproduce accurately. Without AI, this would require either a team of analysts or a founder spending nights on tasks that aren't their core skill. AI doesn't just speed it up — it makes the whole product category possible for a solo builder.",
     },
   },
   {

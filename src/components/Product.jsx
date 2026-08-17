@@ -70,117 +70,80 @@ function DifferentiatorsCard({ items }) {
 }
 
 function CaseStudy({ cs, color }) {
-  const cards = [
-    {
-      icon: "🎯",
-      label: "The Problem",
-      content: cs.problem,
-      bg: "linear-gradient(145deg, #1c0808, #2d1010)",
-      accent: "#f87171",
-      border: "rgba(248,113,113,0.25)",
-    },
-    {
-      icon: "💡",
-      label: "The Solution",
-      content: cs.solution,
-      bg: "linear-gradient(145deg, #080d1c, #0f1629)",
-      accent: color,
-      border: `${color}40`,
-    },
-    {
-      icon: "🤖",
-      label: "Why AI?",
-      content: cs.whyAI,
-      bg: "linear-gradient(145deg, #1a1100, #2b1d00)",
-      accent: "#fbbf24",
-      border: "rgba(251,191,36,0.25)",
-    },
-  ];
-
   return (
     <div className="mt-10">
-      {/* Deep Dive header */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(139,92,246,0.35))" }} />
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-5">
+        <div className="h-px flex-1 bg-neutral-200" />
+        <span className="text-[10px] font-black tracking-[0.22em] text-neutral-400 uppercase px-1">Case Study</span>
+        <div className="h-px flex-1 bg-neutral-200" />
+      </div>
+
+      {/* Problem + Solution — side by side */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        {/* Problem */}
+        <div className="rounded-2xl bg-rose-50 border border-rose-100 p-5 flex flex-col gap-2">
+          <span className="text-[10px] font-black tracking-[0.18em] text-rose-400 uppercase">The Problem</span>
+          <p className="text-base font-bold text-rose-900 leading-snug">{cs.problemHeadline || cs.problem}</p>
+          {cs.problemHeadline && (
+            <p className="text-sm text-rose-700/70 leading-relaxed">{cs.problem}</p>
+          )}
+        </div>
+
+        {/* Solution */}
         <div
-          className="px-4 py-1 rounded-full"
-          style={{ background: "rgba(109,40,217,0.12)", border: "1px solid rgba(139,92,246,0.3)" }}
+          className="rounded-2xl border p-5 flex flex-col gap-2"
+          style={{ background: `${color}0d`, borderColor: `${color}25` }}
         >
           <span
-            className="text-[10px] font-black tracking-[0.22em]"
-            style={{ color: "#c4b5fd", textTransform: "uppercase" }}
+            className="text-[10px] font-black tracking-[0.18em] uppercase"
+            style={{ color }}
           >
-            Deep Dive
+            The Solution
           </span>
+          <p className="text-base font-bold leading-snug" style={{ color }}>
+            {cs.solutionHeadline || cs.solution}
+          </p>
+          {cs.solutionHeadline && (
+            <p className="text-sm leading-relaxed" style={{ color: `${color}99` }}>{cs.solution}</p>
+          )}
         </div>
-        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(139,92,246,0.35), transparent)" }} />
       </div>
 
-      {/* Problem / Solution / Why AI — 3-col dark cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-        {cards.map((c) => (
-          <div
-            key={c.label}
-            className="rounded-2xl overflow-hidden flex flex-col"
-            style={{ background: c.bg, border: `1px solid ${c.border}` }}
-          >
-            <div className="h-[2px]" style={{ background: `linear-gradient(90deg, ${c.accent}, transparent)` }} />
-            <div className="p-5 flex flex-col gap-3 flex-1">
-              <span className="text-2xl leading-none">{c.icon}</span>
-              <p
-                className="text-[10px] font-black tracking-[0.18em]"
-                style={{ color: c.accent, textTransform: "uppercase" }}
-              >
-                {c.label}
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.68)" }}>
-                {c.content}
-              </p>
-            </div>
-          </div>
-        ))}
+      {/* Why AI — full-width spotlight */}
+      <div
+        className="rounded-2xl mb-3 overflow-hidden"
+        style={{ background: "linear-gradient(120deg, #0f0c29, #302b63, #24243e)" }}
+      >
+        <div className="px-6 py-5">
+          <span className="text-[10px] font-black tracking-[0.22em] text-indigo-400 uppercase">Why AI?</span>
+          <p className="text-lg font-bold text-white mt-1.5 mb-2 leading-snug">
+            {cs.whyAIHeadline || cs.whyAI}
+          </p>
+          {cs.whyAIHeadline && (
+            <p className="text-sm text-indigo-200/60 leading-relaxed">{cs.whyAI}</p>
+          )}
+        </div>
       </div>
 
-      {/* Tradeoffs */}
+      {/* Tradeoffs — compact list */}
       {cs.tradeoffs?.length > 0 && (
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{
-            background: "linear-gradient(145deg, #0c0a18, #120f22)",
-            border: "1px solid rgba(139,92,246,0.22)",
-          }}
-        >
-          <div className="h-[2px]" style={{ background: "linear-gradient(90deg, #818cf8, #c084fc, transparent)" }} />
-          <div className="p-5 md:p-6">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-xl leading-none">⚖️</span>
-              <p
-                className="text-[10px] font-black tracking-[0.18em]"
-                style={{ color: "#a78bfa", textTransform: "uppercase" }}
-              >
-                Tradeoffs
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-              {cs.tradeoffs.map((t, i) => (
-                <div key={t.title} className="flex flex-col gap-2">
-                  <div className="flex items-start gap-2.5">
-                    <span
-                      className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
-                      style={{ background: "#5b21b6", color: "#ede9fe" }}
-                    >
-                      {i + 1}
-                    </span>
-                    <p className="text-sm font-semibold leading-snug" style={{ color: "#e2e8f0" }}>
-                      {t.title}
-                    </p>
-                  </div>
-                  <p className="text-sm leading-relaxed pl-[30px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    {t.body}
-                  </p>
+        <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
+          <div className="px-5 pt-4 pb-1">
+            <span className="text-[10px] font-black tracking-[0.22em] text-neutral-400 uppercase">Engineering Tradeoffs</span>
+          </div>
+          <div className="divide-y divide-neutral-100">
+            {cs.tradeoffs.map((t, i) => (
+              <div key={t.title} className="flex gap-4 px-5 py-3.5">
+                <span className="text-[11px] font-black text-violet-400 mt-0.5 flex-shrink-0 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-neutral-800 leading-snug">{t.title}</p>
+                  <p className="text-xs text-neutral-500 leading-relaxed mt-0.5">{t.body}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       )}
