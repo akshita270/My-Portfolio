@@ -44,6 +44,19 @@ export const products = [
         body: "Originally required a claim code to link a self-registered patient account to a doctor-created record, to prevent account takeover by anyone who knew a patient's email. In practice this broke onboarding for elderly patients without email, and a separate gap — no dedup check when doctors added a new patient — caused the same person to end up as two disconnected database rows, so a prescription the doctor sent was invisible from the patient's own login. Removed claim codes entirely and replaced them with phone-or-email matching plus automatic record reuse at intake, fixing the onboarding friction and the duplicate-record bug's root cause in one pass.",
       },
     ],
+    caseStudy: {
+      problemHeadline: "Doctors in Indian clinics spend more time on paperwork than on patients.",
+      problem: "A doctor seeing 40+ patients a day handwrites prescriptions for each one — slow, error-prone, and often illegible. Patients lose slips, can't read them, or can't share them with family. No existing tool was built for how Indian clinics actually work.",
+      solutionHeadline: "The doctor talks. The prescription writes itself.",
+      solution: "SehatRx listens to the consultation, transcribes it in real time using Whisper, drafts a structured prescription via LLM, and delivers it to the patient's portal the moment the doctor approves — zero paperwork, zero delay.",
+      whyAIHeadline: "Without AI, this workflow simply can't exist.",
+      whyAI: "Real-time speech transcription, multilingual support (Hindi + English code-switching), and extracting diagnosis/medications/dosage from free-form speech are all AI-native problems. A rule-based system can't handle natural conversation. AI is the product, not a feature.",
+      tradeoffs: [
+        { title: "Whisper (cloud) vs. on-device STT", body: "Whisper gives significantly better accuracy on Hindi-English code-switching than on-device alternatives. The tradeoff is latency and cost per transcription — acceptable for a clinical setting where accuracy is non-negotiable." },
+        { title: "LLM prescription drafting vs. structured form input", body: "Free-form speech → LLM structuring is faster for doctors but introduces hallucination risk on medication names. Mitigated by requiring doctor review before any prescription is finalized." },
+        { title: "JWT auth vs. OAuth", body: "JWT keeps the backend stateless and avoids third-party OAuth dependency for a clinic-facing product where patients may not have Google accounts. The tradeoff is manual token refresh management." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/askql",
