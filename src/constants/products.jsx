@@ -203,6 +203,19 @@ export const products = [
       "Session-scoped, in-memory FAISS index per PDF upload — no shared state between users",
       "Deployed live on AWS EC2 with a Next.js + Tailwind frontend on Netlify",
     ],
+    caseStudy: {
+      problemHeadline: "Standard RAG hallucinates — and has no way to know it's wrong.",
+      problem: "Vanilla RAG retrieves chunks and generates an answer in one shot. If the retrieved context is irrelevant or the answer is unfaithful, the system returns it anyway. For clinical research documents where accuracy is non-negotiable, that's a hard failure.",
+      solutionHeadline: "A 9-stage pipeline that validates itself before returning anything.",
+      solution: "ReflexRAG uses hybrid retrieval (FAISS + BM25), cross-encoder reranking, and two self-reflection checkpoints — a retrieval grader and an answer grader — each triggering query expansion and retry if validation fails. Nothing is returned until both checks pass.",
+      whyAIHeadline: "Self-reflection grading is only possible because LLMs can evaluate their own outputs.",
+      whyAI: "The retrieval grader and answer grader both use GPT-4o mini to score quality and faithfulness — a task that requires language understanding, not just pattern matching. Without LLM-as-judge, there's no reliable automated way to catch hallucinations before they reach the user.",
+      tradeoffs: [
+        { title: "Hybrid retrieval vs. dense-only (FAISS)", body: "BM25 catches exact keyword matches that dense embeddings miss — critical for clinical terms and drug names. The tradeoff is added index complexity and the need for Reciprocal Rank Fusion to merge the two result sets." },
+        { title: "Self-reflection retry vs. single-pass generation", body: "Retrying on failed grading adds latency (up to 2 extra LLM calls per query). For a clinical use case, the accuracy gain is worth it — a wrong answer with confidence is worse than a slower correct one." },
+        { title: "Session-scoped in-memory index vs. persistent shared index", body: "Each PDF upload gets its own FAISS index in memory, so there's zero cross-user data leakage. The tradeoff is that the index is lost on session end — fine for a research tool, not for a persistent knowledge base." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/memoryos-benchmark",
