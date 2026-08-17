@@ -255,6 +255,19 @@ export const products = [
       "FastAPI + vanilla JS web dashboard for live task management, GitHub issue sync, and notes overview alongside the MCP server",
       "Drops straight into Claude Desktop/Claude Code via claude_desktop_config.json — talk to it naturally: \"Create a task: set up CI/CD, high priority\" or \"Give me my daily standup\"",
     ],
+    caseStudy: {
+      problemHeadline: "Developers context-switch constantly — tasks, notes, GitHub, and Claude are all separate tools.",
+      problem: "Every time a developer needs to check tasks, search notes, or sync a GitHub issue, they leave their flow. Claude can answer questions but can't touch your local workspace. The gap between AI and your actual dev environment is manual copy-paste.",
+      solutionHeadline: "Claude connects directly to your dev workspace — tasks, notes, and GitHub in one conversation.",
+      solution: "DevAssist is an MCP server that gives Claude 13 tools to manage tasks, search markdown notes, sync GitHub issues, and surface everything in a live web dashboard. Ask Claude for your daily standup or to create a high-priority task — it just works.",
+      whyAIHeadline: "Natural language task and project management is only useful when the AI can actually act on your workspace.",
+      whyAI: "The value isn't answering questions about your project — it's Claude being able to create a task, close a GitHub issue, or draft a standup from your real data, without you leaving the conversation. MCP makes Claude an agent in your environment, not just a chatbot next to it.",
+      tradeoffs: [
+        { title: "FastMCP vs. raw MCP SDK", body: "FastMCP drastically reduces boilerplate for defining tools, resources, and prompts. The tradeoff is a thin abstraction layer over the raw SDK — acceptable since MCP's spec is stable and FastMCP tracks it closely." },
+        { title: "SQLite vs. file-based task storage", body: "SQLite gives structured querying and task-issue linking without a server dependency. Plain files would be simpler but can't support the relational queries needed to link tasks to GitHub issues." },
+        { title: "Local MCP server vs. cloud-hosted agent", body: "Running locally means zero latency, no auth complexity, and full access to the filesystem for notes. A cloud-hosted version would be shareable across machines but loses the local-first simplicity that makes the setup a single config file." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/financial-agent",
