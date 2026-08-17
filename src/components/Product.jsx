@@ -84,26 +84,26 @@ function CaseStudy({ cs, color }) {
         {/* Problem */}
         <div
           className="rounded-2xl p-6 flex flex-col gap-3"
-          style={{ background: "linear-gradient(135deg, #9f1239, #be123c)" }}
+          style={{ background: "linear-gradient(135deg, #4338ca, #7c3aed)" }}
         >
-          <span className="text-sm font-black tracking-widest text-rose-300 uppercase">The Problem</span>
+          <span className="text-sm font-black tracking-widest text-indigo-200 uppercase">The Problem</span>
           <p className="text-xl font-black text-white leading-snug">{cs.problemHeadline || cs.problem}</p>
           {cs.problemHeadline && (
-            <p className="text-sm text-rose-100/75 leading-relaxed">{cs.problem}</p>
+            <p className="text-sm text-white/65 leading-relaxed">{cs.problem}</p>
           )}
         </div>
 
         {/* Solution */}
         <div
           className="rounded-2xl p-6 flex flex-col gap-3"
-          style={{ background: `linear-gradient(135deg, ${color}cc, ${color})` }}
+          style={{ background: "linear-gradient(135deg, #0891b2, #0d9488)" }}
         >
-          <span className="text-sm font-black tracking-widest text-white/60 uppercase">The Solution</span>
+          <span className="text-sm font-black tracking-widest text-cyan-200 uppercase">The Solution</span>
           <p className="text-xl font-black text-white leading-snug">
             {cs.solutionHeadline || cs.solution}
           </p>
           {cs.solutionHeadline && (
-            <p className="text-sm text-white/70 leading-relaxed">{cs.solution}</p>
+            <p className="text-sm text-white/65 leading-relaxed">{cs.solution}</p>
           )}
         </div>
       </div>
