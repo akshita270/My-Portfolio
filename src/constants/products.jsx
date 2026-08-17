@@ -149,6 +149,19 @@ export const products = [
       "Ranks generated hypotheses by confidence score with supporting evidence attached — e.g. querying \"new gene relationships related to Alzheimer's disease\" returns ranked, evidence-backed hypotheses",
       "FastAPI backend with async job polling (`/query`, `/status/{job_id}`, `/result/{job_id}`) and a Streamlit front-end",
     ],
+    caseStudy: {
+      problemHeadline: "Scientific hypothesis generation takes researchers months — most leads never get explored.",
+      problem: "Biomedical researchers manually scan thousands of papers, cross-reference gene databases, and piece together evidence before forming a single hypothesis. Most promising gene-disease connections are never explored simply because the process doesn't scale.",
+      solutionHeadline: "Type a query. Get ranked, evidence-backed hypotheses in minutes.",
+      solution: "An 8-agent pipeline retrieves real literature from PubMed, extracts biomedical entities with spaCy NER, cross-references NCBI Gene and UniProt, builds a knowledge graph in Neo4j, generates hypotheses with GPT-4o, and validates them against evidence — all automatically.",
+      whyAIHeadline: "No rule-based system can read papers, extract meaning, and reason across a knowledge graph.",
+      whyAI: "Biomedical NER, literature comprehension, and hypothesis generation from sparse evidence are all tasks that require deep language understanding. GPT-4o reasons across the knowledge graph to surface connections a keyword search would never find. AI doesn't assist the pipeline — it is the pipeline.",
+      tradeoffs: [
+        { title: "GPT-4o vs. biomedical fine-tuned models", body: "GPT-4o's general reasoning outperforms smaller domain-specific models on cross-domain hypothesis generation. The tradeoff is cost and latency per query — acceptable for a research tool where quality matters more than speed." },
+        { title: "Neo4j knowledge graph vs. vector similarity search", body: "A graph database captures explicit gene-disease-evidence relationships and supports multi-hop queries. Vector search would be faster for retrieval but loses the structured relationship semantics that make hypothesis validation meaningful." },
+        { title: "8-agent sequential pipeline vs. single LLM call", body: "Each agent specializes in one task — retrieval, extraction, graph construction, generation, validation — producing far more accurate output than asking one prompt to do everything. The cost is pipeline latency and complexity." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/RAG-comparison-experiment",
