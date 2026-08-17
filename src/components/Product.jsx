@@ -82,29 +82,36 @@ function CaseStudy({ cs, color }) {
       {/* Problem + Solution — side by side */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
         {/* Problem */}
-        <div
-          className="rounded-2xl p-6 flex flex-col gap-3"
-          style={{ background: "linear-gradient(135deg, #4338ca, #7c3aed)" }}
-        >
-          <span className="text-sm font-black tracking-widest text-indigo-200 uppercase">The Problem</span>
-          <p className="text-xl font-black text-white leading-snug">{cs.problemHeadline || cs.problem}</p>
-          {cs.problemHeadline && (
-            <p className="text-sm text-white/65 leading-relaxed">{cs.problem}</p>
-          )}
+        <div className="rounded-2xl bg-white border border-neutral-200 overflow-hidden flex flex-col">
+          <div className="h-1 bg-rose-500" />
+          <div className="p-6 flex flex-col gap-3">
+            <span className="inline-flex w-fit text-[11px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-200">
+              The Problem
+            </span>
+            <p className="text-2xl font-black text-neutral-900 leading-snug">{cs.problemHeadline || cs.problem}</p>
+            {cs.problemHeadline && (
+              <p className="text-sm text-neutral-500 leading-relaxed">{cs.problem}</p>
+            )}
+          </div>
         </div>
 
         {/* Solution */}
-        <div
-          className="rounded-2xl p-6 flex flex-col gap-3"
-          style={{ background: "linear-gradient(135deg, #0891b2, #0d9488)" }}
-        >
-          <span className="text-sm font-black tracking-widest text-cyan-200 uppercase">The Solution</span>
-          <p className="text-xl font-black text-white leading-snug">
-            {cs.solutionHeadline || cs.solution}
-          </p>
-          {cs.solutionHeadline && (
-            <p className="text-sm text-white/65 leading-relaxed">{cs.solution}</p>
-          )}
+        <div className="rounded-2xl bg-white border border-neutral-200 overflow-hidden flex flex-col">
+          <div className="h-1" style={{ background: color }} />
+          <div className="p-6 flex flex-col gap-3">
+            <span
+              className="inline-flex w-fit text-[11px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full border"
+              style={{ background: `${color}10`, color, borderColor: `${color}30` }}
+            >
+              The Solution
+            </span>
+            <p className="text-2xl font-black text-neutral-900 leading-snug">
+              {cs.solutionHeadline || cs.solution}
+            </p>
+            {cs.solutionHeadline && (
+              <p className="text-sm text-neutral-500 leading-relaxed">{cs.solution}</p>
+            )}
+          </div>
         </div>
       </div>
 
