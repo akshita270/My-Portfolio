@@ -86,7 +86,7 @@ function CaseStudy({ cs, color }) {
           className="rounded-2xl p-6 flex flex-col gap-3"
           style={{ background: "linear-gradient(135deg, #9f1239, #be123c)" }}
         >
-          <span className="text-[10px] font-black tracking-[0.2em] text-rose-300 uppercase">The Problem</span>
+          <span className="text-sm font-black tracking-widest text-rose-300 uppercase">The Problem</span>
           <p className="text-xl font-black text-white leading-snug">{cs.problemHeadline || cs.problem}</p>
           {cs.problemHeadline && (
             <p className="text-sm text-rose-100/75 leading-relaxed">{cs.problem}</p>
@@ -98,7 +98,7 @@ function CaseStudy({ cs, color }) {
           className="rounded-2xl p-6 flex flex-col gap-3"
           style={{ background: `linear-gradient(135deg, ${color}cc, ${color})` }}
         >
-          <span className="text-[10px] font-black tracking-[0.2em] text-white/60 uppercase">The Solution</span>
+          <span className="text-sm font-black tracking-widest text-white/60 uppercase">The Solution</span>
           <p className="text-xl font-black text-white leading-snug">
             {cs.solutionHeadline || cs.solution}
           </p>
@@ -114,7 +114,7 @@ function CaseStudy({ cs, color }) {
         style={{ background: "linear-gradient(120deg, #0f0c29, #302b63, #24243e)" }}
       >
         <div className="px-6 py-5">
-          <span className="text-[10px] font-black tracking-[0.22em] text-indigo-400 uppercase">Why AI?</span>
+          <span className="text-sm font-black tracking-widest text-indigo-400 uppercase">Why AI?</span>
           <p className="text-xl font-black text-white mt-1.5 mb-2 leading-snug">
             {cs.whyAIHeadline || cs.whyAI}
           </p>
@@ -128,7 +128,7 @@ function CaseStudy({ cs, color }) {
       {cs.tradeoffs?.length > 0 && (
         <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
           <div className="px-5 pt-4 pb-1">
-            <span className="text-[10px] font-black tracking-[0.22em] text-neutral-400 uppercase">Engineering Tradeoffs</span>
+            <span className="text-sm font-black tracking-widest text-neutral-500 uppercase">Engineering Tradeoffs</span>
           </div>
           <div className="divide-y divide-neutral-100">
             {cs.tradeoffs.map((t, i) => (
