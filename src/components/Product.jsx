@@ -131,24 +131,35 @@ function CaseStudy({ cs, color }) {
         </div>
       </div>
 
-      {/* Tradeoffs — compact list */}
+      {/* Tradeoffs — chosen vs alternative */}
       {cs.tradeoffs?.length > 0 && (
         <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
+          <div className="h-1 bg-violet-500" />
           <div className="px-5 pt-4 pb-1">
-            <span className="text-sm font-black tracking-widest text-neutral-500 uppercase">Engineering Tradeoffs</span>
+            <span className="inline-flex w-fit text-[11px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full bg-violet-50 text-violet-600 border border-violet-200">
+              Engineering Tradeoffs
+            </span>
           </div>
           <div className="divide-y divide-neutral-100">
-            {cs.tradeoffs.map((t, i) => (
-              <div key={t.title} className="flex gap-4 px-5 py-3.5">
-                <span className="text-[11px] font-black text-violet-400 mt-0.5 flex-shrink-0 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-neutral-800 leading-snug">{t.title}</p>
-                  <p className="text-xs text-neutral-500 leading-relaxed mt-0.5">{t.body}</p>
+            {cs.tradeoffs.map((t) => {
+              const parts = t.title.split(/ vs\.? /i);
+              const chosen = parts[0]?.trim();
+              const alternative = parts.slice(1).join(" vs ").trim();
+              return (
+                <div key={t.title} className="px-5 py-4 flex flex-col gap-2.5">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="text-emerald-500 font-black">✓</span> {chosen}
+                    </span>
+                    <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">vs</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full bg-neutral-100 text-neutral-500 border border-neutral-200">
+                      <span className="text-neutral-400 font-black">✕</span> {alternative}
+                    </span>
+                  </div>
+                  <p className="text-xs text-neutral-500 leading-relaxed">{t.body}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
