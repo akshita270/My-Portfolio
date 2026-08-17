@@ -183,6 +183,19 @@ export const products = [
       "Evaluated on faithfulness, relevance, context precision, and latency using RAGAS metrics and a blind LLM-as-judge (1–5 scoring)",
       "Produces a results CSV and 4 comparison charts to identify which retrieval strategy actually reduces hallucination in production RAG systems",
     ],
+    caseStudy: {
+      problemHeadline: "Everyone builds RAG — nobody measures which architecture actually works.",
+      problem: "Most RAG systems are shipped without rigorous benchmarking. Teams choose Vanilla RAG or HyDE or GraphRAG based on intuition, blog posts, or what's easiest to implement — not data. There's no controlled comparison showing which approach actually reduces hallucinations.",
+      solutionHeadline: "Four architectures, same 25 questions, same papers — let the metrics decide.",
+      solution: "Each architecture answers the same 25 questions over 25 ArXiv papers. RAGAS measures faithfulness, relevance, and context precision. A blind LLM-as-judge scores 1–5. Results go into a CSV and 4 comparison charts, giving a clear answer on what works and what doesn't.",
+      whyAIHeadline: "Only an LLM can judge whether an LLM answer is faithful to its sources.",
+      whyAI: "Traditional metrics can't assess whether a generated answer is grounded in retrieved context. LLM-as-judge uses the same kind of language understanding as the system under test to score faithfulness — it's the only automated evaluation method that catches the hallucinations that matter.",
+      tradeoffs: [
+        { title: "LLM-as-judge vs. RAGAS-only evaluation", body: "RAGAS gives automated, reproducible scores but can miss nuanced hallucinations. A blind LLM judge adds human-like quality scoring but costs more and introduces model-specific bias. Both together give a fuller picture." },
+        { title: "Agentic RAG vs. GraphRAG", body: "Agentic RAG scores higher on complex multi-hop questions by dynamically deciding what to retrieve next. GraphRAG wins on structured relational questions. Neither dominates — the best architecture depends on the query type." },
+        { title: "Fixed 25-question eval set vs. larger benchmark", body: "25 questions keeps compute cost manageable (300+ LLM calls total) while still producing statistically meaningful comparisons. A larger set would increase confidence but at 10x the cost — diminishing returns for a research experiment." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/-ReflexRAG",
@@ -236,6 +249,19 @@ export const products = [
       "Benchmarked against a stateless baseline agent across 50 tasks following a fictional user whose facts are introduced early and must be recalled and synthesized later",
       "Memory-equipped agent's score diverges clearly from the stateless baseline by session 4, reaching near-perfect scores on complex synthesis tasks by sessions 7–10",
     ],
+    caseStudy: {
+      problemHeadline: "AI agents forget everything between sessions — the same questions get answered from scratch every time.",
+      problem: "Stateless agents have no continuity. Every session starts cold — no memory of what the user said last week, no learned preferences, no ability to synthesize facts across conversations. This limits agents to single-session tasks and makes them feel dumb compared to a human assistant.",
+      solutionHeadline: "A 3-layer memory system that proves persistent memory makes agents measurably smarter.",
+      solution: "Working memory handles in-session context. Episodic memory (ChromaDB) semantically retrieves past conversations. Semantic memory compresses long-term user facts into a profile. A deterministic MemoryRouter combines all three before every LLM call — benchmarked against a stateless baseline across 50 tasks.",
+      whyAIHeadline: "Memory only matters if the AI can reason across what it remembers — not just retrieve it.",
+      whyAI: "Retrieving a past message isn't enough. The agent needs to synthesize across multiple episodic memories and an evolving user profile to answer questions like 'based on everything I've told you, what should I focus on?' That kind of cross-memory reasoning requires LLM-level language understanding.",
+      tradeoffs: [
+        { title: "Semantic memory compression vs. full history retrieval", body: "Compressing long-term facts into a user profile keeps the context window manageable and forces the LLM to reason over a clean summary. Full history retrieval would be more complete but creates a bloated, noisy context that degrades answer quality." },
+        { title: "Deterministic MemoryRouter vs. LLM-based routing", body: "A deterministic router is predictable, fast, and makes the benchmark reproducible — the same query always pulls the same memory layers. An LLM router could be smarter but would add latency and make results harder to attribute." },
+        { title: "ChromaDB for episodic memory vs. keyword search", body: "Semantic similarity retrieval finds relevant past conversations even when exact words don't match — essential for a memory system. Keyword search would miss paraphrased references to earlier facts." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/devassist-workspace",
@@ -288,6 +314,19 @@ export const products = [
       "Finance Agent renders results as markdown tables for clean side-by-side comparison",
       "Streamlit interface takes any stock, company, or financial question and runs both agents in parallel, showing market data and news side by side",
     ],
+    caseStudy: {
+      problemHeadline: "Financial analysis means juggling live market data and breaking news at the same time — no single tool does both well.",
+      problem: "Stock screeners give numbers but no context. News tools give headlines but no data. An analyst needs both simultaneously — live fundamentals alongside the news story driving a price move — and manually switching between tools loses the connection between them.",
+      solutionHeadline: "Two specialized agents working in parallel — one on data, one on news.",
+      solution: "A Finance Agent pulls live stock prices, fundamentals, and analyst recommendations via yfinance tools. A Web Search Agent finds the latest market news via DuckDuckGo. Both are backed by GPT-4o mini, run in parallel on any query, and surface results side by side in a Streamlit interface.",
+      whyAIHeadline: "Only an LLM can connect a raw earnings number to the news story that explains why it moved the stock.",
+      whyAI: "Fetching data is trivial. Interpreting what a P/E ratio means in the context of this week's Fed decision, or why a stock dropped despite good earnings — that requires reasoning over both structured data and unstructured news. GPT-4o mini bridges the two in natural language.",
+      tradeoffs: [
+        { title: "Two specialized agents vs. one general agent", body: "Keeping agents in their lane prevents the web agent from hallucinating stock prices (a known failure mode) and keeps tool use clean. A single agent would be simpler but harder to constrain — financial accuracy is non-negotiable." },
+        { title: "GPT-4o mini vs. GPT-4o", body: "GPT-4o mini is significantly cheaper for the high-volume tool calls this system makes (price lookups, news searches, fundamentals) with minimal quality loss on structured financial tasks. GPT-4o would add cost without meaningful accuracy gains here." },
+        { title: "DuckDuckGo search vs. financial news API", body: "DuckDuckGo requires no API key and covers a broad range of sources. A dedicated financial news API (Bloomberg, Benzinga) would give higher-quality, structured results but adds cost and setup friction for a research prototype." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/speculative-decoding-inference-engine",
@@ -308,5 +347,18 @@ export const products = [
       "Semantic cache layer: cosine similarity ≥ 0.92 serves cached responses instantly, bypassing the inference engine entirely",
       "Load-based router: routes to a faster draft model under high load, a better draft model under low load — balancing latency vs. acceptance rate dynamically",
     ],
+    caseStudy: {
+      problemHeadline: "LLM inference is slow — and most optimization techniques sacrifice output quality to get speed.",
+      problem: "Standard autoregressive sampling generates one token at a time. Techniques like quantization or smaller models speed things up but change the output distribution. There's no free lunch — until speculative decoding, which gets the speed without touching the quality.",
+      solutionHeadline: "A small draft model proposes tokens. The large model verifies them all in one pass.",
+      solution: "The draft model speculatively generates k tokens ahead. The target model verifies all k in a single batched forward pass using an accept/reject rule that guarantees output is mathematically identical to sampling from the target alone — faster inference, zero quality loss. A semantic cache and load-based router further reduce redundant compute.",
+      whyAIHeadline: "Speculative decoding only works because large and small models share the same token distribution.",
+      whyAI: "The acceptance rate — how many draft tokens the target model keeps — depends entirely on the draft and target models being trained on similar data. A random heuristic guesser would have near-zero acceptance. The technique is uniquely enabled by the way language models are trained, not a general-purpose optimization trick.",
+      tradeoffs: [
+        { title: "Speculative decoding vs. quantization for speed", body: "Quantization changes model weights and shifts the output distribution — faster, but not identical output. Speculative decoding is mathematically lossless: the accept/reject rule proves output is identical to the target model alone. Better for quality-sensitive applications." },
+        { title: "Semantic cache vs. exact-match cache", body: "Cosine similarity ≥ 0.92 catches paraphrased repeats of the same question and serves cached responses instantly. Exact-match cache misses these. The tradeoff is a small risk of serving a cached answer to a subtly different query." },
+        { title: "Load-based draft model routing vs. fixed draft model", body: "Routing between a faster and a better draft model based on queue depth dynamically trades acceptance rate for throughput under load. A fixed draft model is simpler to reason about but leaves latency on the table during low-traffic periods." },
+      ],
+    },
   },
 ];
