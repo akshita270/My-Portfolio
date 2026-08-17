@@ -344,7 +344,7 @@ export const products = [
     description:
       "A mini LLM inference system built around speculative decoding — a small draft model proposes tokens ahead, and a large target model verifies them in a single batched pass, producing mathematically identical output to standard sampling but significantly faster.",
     thumbnail: "⚡",
-    image: "/images/projects/speculative-decoding.svg",
+    image: "/images/projects/spec-decoding.webp",
     contain: false,
     color: "#6366f1",
     period: "2026",
