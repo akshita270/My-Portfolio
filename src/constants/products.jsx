@@ -195,6 +195,12 @@ export const products = [
         { title: "Agentic RAG vs. GraphRAG", body: "Agentic RAG scores higher on complex multi-hop questions by dynamically deciding what to retrieve next. GraphRAG wins on structured relational questions. Neither dominates — the best architecture depends on the query type." },
         { title: "Fixed 25-question eval set vs. larger benchmark", body: "25 questions keeps compute cost manageable (300+ LLM calls total) while still producing statistically meaningful comparisons. A larger set would increase confidence but at 10x the cost — diminishing returns for a research experiment." },
       ],
+      results: [
+        { value: "0.980", label: "Faithfulness", sub: "HyDE RAG — best score" },
+        { value: "0.960", label: "Answer Relevancy", sub: "HyDE RAG — best score" },
+        { value: "4", label: "Architectures Benchmarked", sub: "Vanilla · HyDE · Graph · Agentic" },
+        { value: "300+", label: "LLM Calls", sub: "100 answer + ~200 scoring calls" },
+      ],
     },
   },
   {
@@ -358,6 +364,12 @@ export const products = [
         { title: "Speculative decoding vs. quantization for speed", body: "Quantization changes model weights and shifts the output distribution — faster, but not identical output. Speculative decoding is mathematically lossless: the accept/reject rule proves output is identical to the target model alone. Better for quality-sensitive applications." },
         { title: "Semantic cache vs. exact-match cache", body: "Cosine similarity ≥ 0.92 catches paraphrased repeats of the same question and serves cached responses instantly. Exact-match cache misses these. The tradeoff is a small risk of serving a cached answer to a subtly different query." },
         { title: "Load-based draft model routing vs. fixed draft model", body: "Routing between a faster and a better draft model based on queue depth dynamically trades acceptance rate for throughput under load. A fixed draft model is simpler to reason about but leaves latency on the table during low-traffic periods." },
+      ],
+      results: [
+        { value: "70%", label: "Cache Hit Rate", sub: "Semantic cache ≥ 0.92 cosine sim" },
+        { value: "48.4%", label: "Draft Acceptance Rate", sub: "gpt2 + gpt2-medium ensemble" },
+        { value: "340", label: "Requests Served", sub: "0 fallbacks — 100% reliability" },
+        { value: "~1s", label: "p50 Latency", sub: "p95 at 40s under max load" },
       ],
     },
   },

@@ -131,6 +131,27 @@ function CaseStudy({ cs, color }) {
         </div>
       </div>
 
+      {/* Results — stat grid */}
+      {cs.results?.length > 0 && (
+        <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden mb-3">
+          <div className="h-1 bg-emerald-500" />
+          <div className="px-5 pt-4 pb-3">
+            <span className="inline-flex w-fit text-[11px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              Results
+            </span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-neutral-100 border-t border-neutral-100">
+            {cs.results.map((r) => (
+              <div key={r.label} className="px-5 py-5 flex flex-col gap-1">
+                <span className="text-3xl font-black text-neutral-900 leading-none">{r.value}</span>
+                <span className="text-xs font-bold text-neutral-700 mt-1">{r.label}</span>
+                <span className="text-[11px] text-neutral-400 leading-snug">{r.sub}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Tradeoffs — chosen vs alternative */}
       {cs.tradeoffs?.length > 0 && (
         <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
