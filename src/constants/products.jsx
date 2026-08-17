@@ -80,6 +80,19 @@ export const products = [
       "Internal observability dashboard tracking live usage, cost, and SQL accuracy against a golden evaluation set",
       "Deployed end-to-end: Vercel (frontend), Google Cloud Run (backend), Supabase Postgres, and GCS for durable per-user file persistence",
     ],
+    caseStudy: {
+      problemHeadline: "Most people can't query their own data — SQL is a barrier.",
+      problem: "Business teams sit on valuable data but depend on engineers to write SQL every time they have a question. It slows decisions, creates bottlenecks, and means most data never gets explored at all.",
+      solutionHeadline: "Ask a question in English. Get a live SQL query, results, and a chart.",
+      solution: "AskQL translates natural language into SQL in real time, streams the query token-by-token, runs it against the user's own isolated dataset, and auto-generates a chart — no SQL knowledge required, no configuration needed.",
+      whyAIHeadline: "Natural language → SQL translation is an LLM-native problem.",
+      whyAI: "Mapping intent from free-form English to syntactically correct, context-aware SQL across arbitrary schemas is exactly what LLMs excel at. A rule-based approach would require hand-coding every query pattern — AI makes it generalize across any dataset a user uploads.",
+      tradeoffs: [
+        { title: "LLM-generated SQL vs. pre-built query builder", body: "A visual query builder would be safer but far less flexible — users couldn't express complex joins or aggregations without SQL knowledge anyway. LLM generation handles the full range of questions at the cost of needing a guardrail layer." },
+        { title: "AST-based guardrails vs. prompt-only safety", body: "Relying solely on prompt instructions to block unsafe SQL is too fragile for a multi-tenant product. An AST parser that blocks non-SELECT statements and cross-tenant table access before the query touches the database is the only safe approach." },
+        { title: "Per-user SQLite vs. shared Postgres", body: "Isolating each user's uploaded CSVs into their own SQLite instance prevents any cross-tenant data leakage without row-level security complexity. The tradeoff is that joins across a user's personal data and the shared demo DB require a query routing layer." },
+      ],
+    },
   },
   {
     href: "https://github.com/akshita270/startup-copilot",
