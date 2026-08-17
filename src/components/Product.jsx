@@ -70,64 +70,114 @@ function DifferentiatorsCard({ items }) {
 }
 
 function CaseStudy({ cs, color }) {
-  const sections = [
+  const cards = [
     {
       icon: "🎯",
       label: "The Problem",
       content: cs.problem,
-      accent: "#ef4444",
+      bg: "linear-gradient(145deg, #1c0808, #2d1010)",
+      accent: "#f87171",
+      border: "rgba(248,113,113,0.25)",
     },
     {
       icon: "💡",
       label: "The Solution",
       content: cs.solution,
+      bg: "linear-gradient(145deg, #080d1c, #0f1629)",
       accent: color,
+      border: `${color}40`,
     },
     {
-      icon: "⚖️",
+      icon: "🤖",
       label: "Why AI?",
       content: cs.whyAI,
-      accent: "#f59e0b",
+      bg: "linear-gradient(145deg, #1a1100, #2b1d00)",
+      accent: "#fbbf24",
+      border: "rgba(251,191,36,0.25)",
     },
   ];
 
   return (
-    <div className="mt-8 space-y-4">
-      {/* Section header */}
-      <div className="flex items-center gap-3">
-        <div className="h-px flex-1 bg-neutral-200" />
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-400 px-2">Deep Dive</p>
-        <div className="h-px flex-1 bg-neutral-200" />
+    <div className="mt-10">
+      {/* Deep Dive header */}
+      <div className="flex items-center gap-3 mb-6">
+        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(139,92,246,0.35))" }} />
+        <div
+          className="px-4 py-1 rounded-full"
+          style={{ background: "rgba(109,40,217,0.12)", border: "1px solid rgba(139,92,246,0.3)" }}
+        >
+          <span
+            className="text-[10px] font-black tracking-[0.22em]"
+            style={{ color: "#c4b5fd", textTransform: "uppercase" }}
+          >
+            Deep Dive
+          </span>
+        </div>
+        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(139,92,246,0.35), transparent)" }} />
       </div>
 
-      {/* Problem / Solution / Why AI */}
-      {sections.map((s) => (
-        <div key={s.label} className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
-          <div className="h-[3px]" style={{ background: s.accent }} />
-          <div className="p-5 md:p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-lg">{s.icon}</span>
-              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">{s.label}</p>
+      {/* Problem / Solution / Why AI — 3-col dark cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+        {cards.map((c) => (
+          <div
+            key={c.label}
+            className="rounded-2xl overflow-hidden flex flex-col"
+            style={{ background: c.bg, border: `1px solid ${c.border}` }}
+          >
+            <div className="h-[2px]" style={{ background: `linear-gradient(90deg, ${c.accent}, transparent)` }} />
+            <div className="p-5 flex flex-col gap-3 flex-1">
+              <span className="text-2xl leading-none">{c.icon}</span>
+              <p
+                className="text-[10px] font-black tracking-[0.18em]"
+                style={{ color: c.accent, textTransform: "uppercase" }}
+              >
+                {c.label}
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.68)" }}>
+                {c.content}
+              </p>
             </div>
-            <p className="text-sm text-neutral-700 leading-relaxed">{s.content}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       {/* Tradeoffs */}
       {cs.tradeoffs?.length > 0 && (
-        <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
-          <div className="h-[3px] bg-violet-400" />
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{
+            background: "linear-gradient(145deg, #0c0a18, #120f22)",
+            border: "1px solid rgba(139,92,246,0.22)",
+          }}
+        >
+          <div className="h-[2px]" style={{ background: "linear-gradient(90deg, #818cf8, #c084fc, transparent)" }} />
           <div className="p-5 md:p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-lg">🔀</span>
-              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">Tradeoffs</p>
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-xl leading-none">⚖️</span>
+              <p
+                className="text-[10px] font-black tracking-[0.18em]"
+                style={{ color: "#a78bfa", textTransform: "uppercase" }}
+              >
+                Tradeoffs
+              </p>
             </div>
-            <div className="space-y-4">
-              {cs.tradeoffs.map((t) => (
-                <div key={t.title}>
-                  <p className="text-sm font-semibold text-neutral-800 mb-1">{t.title}</p>
-                  <p className="text-sm text-neutral-600 leading-relaxed">{t.body}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {cs.tradeoffs.map((t, i) => (
+                <div key={t.title} className="flex flex-col gap-2">
+                  <div className="flex items-start gap-2.5">
+                    <span
+                      className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
+                      style={{ background: "#5b21b6", color: "#ede9fe" }}
+                    >
+                      {i + 1}
+                    </span>
+                    <p className="text-sm font-semibold leading-snug" style={{ color: "#e2e8f0" }}>
+                      {t.title}
+                    </p>
+                  </div>
+                  <p className="text-sm leading-relaxed pl-[30px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+                    {t.body}
+                  </p>
                 </div>
               ))}
             </div>
@@ -157,29 +207,7 @@ export const SingleProduct = ({ product }) => {
             </span>
           ))}
         </div>
-        <Paragraph className="max-w-2xl">{product.description}</Paragraph>
       </div>
-
-      {/* Highlights — dark card */}
-      {product.highlights?.length > 0 && (
-        <div
-          className="mt-8 rounded-2xl overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}
-        >
-          <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${product.color}, #818cf8)` }} />
-          <div className="p-6 md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Key Highlights</p>
-            <ul className="space-y-3">
-              {product.highlights.map((h) => (
-                <li key={h} className="flex gap-3 text-sm text-white/75 leading-relaxed">
-                  <span className="mt-0.5 text-base shrink-0" style={{ color: product.color }}>▸</span>
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
 
       {/* Differentiators / USP — flip-open flash cards */}
       {product.differentiators?.length > 0 && (
