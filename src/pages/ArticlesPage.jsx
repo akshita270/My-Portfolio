@@ -4,6 +4,14 @@ import { Paragraph } from "../components/Paragraph";
 
 const articles = [
   {
+    title: "I Built SehatRx, an AI Prescription App for Indian Clinics — The AI Was the Easy Part",
+    description:
+      "How I built a full-stack AI prescription platform for Indian clinics — covering ASR transcription, ICD-10 NER, GPT-4o prescription drafting, and the hard non-technical lessons about deploying AI in real healthcare settings.",
+    href: "https://medium.com/@jakshita770/i-built-sehatrx-an-ai-prescription-app-for-indian-clinics-the-ai-was-the-easy-part-c097417b0d35",
+    icon: "🏥",
+    tags: ["Healthcare AI", "RAG", "NLP", "Production"],
+  },
+  {
     title: "Does Retrieval Strategy Determine Hallucination? A Controlled Comparison of Four RAG Architectures",
     description:
       "A structured research experiment comparing four RAG architectures — Vanilla, HyDE, GraphRAG, and Agentic RAG — on their ability to reduce hallucinations when answering questions about AI/ML research papers from ArXiv.",
