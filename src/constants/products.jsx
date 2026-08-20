@@ -142,7 +142,7 @@ export const products = [
     stack: ["Python", "FastAPI", "GPT-4o", "LangGraph", "Neo4j", "spaCy", "D3.js", "Clerk"],
     slug: "genesight",
     featured: true,
-    deck: "/GeneSight-Deck.pdf",
+    deck: "/GeneSight-Deck.html",
     highlights: [
       "8-agent async pipeline: Task Planner → PubMed literature search (33M+ papers) → spaCy biomedical NER → NCBI Gene + UniProt enrichment → Neo4j knowledge graph → GPT-4o hypothesis generation → evidence validator → quality scorer + report",
       "Production-grade features: result caching, prompt injection detection, hallucination guard (hypothesis genes verified against NCBI), faithfulness check, circuit breakers for OpenAI/NCBI/Neo4j, concurrency limiter (max 3 pipelines), 5-min timeout",
