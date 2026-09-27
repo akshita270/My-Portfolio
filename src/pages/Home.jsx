@@ -9,7 +9,6 @@ import { useTypewriter } from "../hooks/useTypewriter";
 
 const stats = [
   { value: "10+", label: "Projects Built", icon: "🚀" },
-  { value: "2", label: "Publications", icon: "📝" },
   { value: "1+", label: "Years at Scale", icon: "⚡" },
   { value: "MS", label: "Boston University", icon: "🎓" },
 ];
