@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Container } from "../components/Container";
 import { Heading } from "../components/Heading";
 import { Paragraph } from "../components/Paragraph";
-import { TechStack } from "../components/TechStack";
 import { FadeIn } from "../components/FadeIn";
 import { useTypewriter } from "../hooks/useTypewriter";
 
@@ -75,7 +74,7 @@ export default function Home() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
               </span>
               <span className="text-sm text-secondary">
-                AI Engineer at{" "}
+                Sr. Data Analyst at{" "}
                 <span className="font-semibold text-primary">KareXpert</span>
                 {" "}· Open to exciting AI roles
               </span>
@@ -85,8 +84,8 @@ export default function Home() {
           <FadeIn delay={0.1}>
             <Paragraph className="max-w-xl mt-3 leading-relaxed">
               I build production AI systems — RAG pipelines, multi-agent workflows, LLM-powered analytics tools —
-              that ship to real users. Currently at KareXpert replacing Microsoft Power BI with an AI BI platform
-              that saves ₹70K–80K/month in licensing.
+              that ship to real users. Currently at KareXpert as Sr. Data Analyst, shipping an AI BI platform
+              that replaced Power BI and saves ₹70K–80K/month in licensing.
             </Paragraph>
             <Link
               to="/projects"
@@ -154,7 +153,7 @@ export default function Home() {
             <div className="p-6 md:p-8 flex flex-col gap-4">
               <div className="flex flex-col gap-3.5 text-sm text-white/80 leading-relaxed">
                 <p>
-                  I&apos;m an AI Engineer driven by curiosity — the kind that makes me want to understand how a new AI technology works, experiment with it, break it, and eventually find a way to build something useful with it.
+                  I&apos;m a Sr. Data Analyst specializing in production LLM applications, RAG workflows, and agentic AI systems — driven by curiosity to understand how a new AI technology works, experiment with it, break it, and find a way to build something useful with it.
                 </p>
                 <p>
                   My interests span <span className="text-white font-semibold">LLMs, RAG, agentic AI, multi-agent systems, LLM evaluation, and AI application engineering</span>. I enjoy exploring new models, frameworks, architectures, and developer tools, but I&apos;m equally interested in what happens beyond the model — retrieval quality, orchestration, latency, scalability, evaluation, reliability, and the engineering required to make AI actually work in production.
@@ -177,9 +176,6 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      <FadeIn delay={0}>
-        <TechStack />
-      </FadeIn>
     </Container>
   );
 }
