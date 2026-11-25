@@ -6,7 +6,7 @@ export const products = [
     description:
       "A production-grade CI/CD pipeline for LLM evaluation — automated per-PR quality gates, per-question regression detection, and a live Next.js dashboard tracking LLM accuracy across 30 golden questions using 6 LLM-as-judge metrics.",
     thumbnail: "🔬",
-    image: "/images/projects/medeval-ai.svg",
+    image: "/images/projects/medeval-ai.png",
     contain: true,
     color: "#f97316",
     period: "2026",
