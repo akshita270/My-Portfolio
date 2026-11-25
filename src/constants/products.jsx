@@ -280,7 +280,7 @@ export const products = [
     description:
       "A continual learning framework for LLMs inspired by how biological brains consolidate memories during sleep — using wake/sleep cycles with LoRA fine-tuning and experience replay on a MacBook M2 to learn new facts while retaining 93.3% of old knowledge.",
     thumbnail: "🌙",
-    image: "/images/projects/sleep-llm.svg",
+    image: "/images/projects/sleep-llm.webp",
     contain: true,
     color: "#7c3aed",
     period: "2026",
