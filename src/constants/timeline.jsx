@@ -1,7 +1,7 @@
 export const timeline = [
   {
     company: "KareXpert",
-    title: "AI Engineer",
+    title: "Sr. Data Analyst",
     date: "Sep 2025 – Present",
     description: "Delhi, India · Full-time",
     logo: "🏥",

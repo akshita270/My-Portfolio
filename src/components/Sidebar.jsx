@@ -109,7 +109,7 @@ const SidebarHeader = () => {
       </div>
       <div className="flex text-sm flex-col">
         <p className="font-bold text-primary text-[13px]">Akshita Jain</p>
-        <p className="font-medium text-[11px] text-violet-500">AI Engineer</p>
+        <p className="font-medium text-[11px] text-violet-500">Sr. Data Analyst</p>
       </div>
     </div>
   );

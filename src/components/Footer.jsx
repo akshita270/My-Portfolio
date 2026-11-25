@@ -5,7 +5,7 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="text-center sm:text-left">
             <p className="text-sm font-bold text-neutral-800">Akshita Jain</p>
-            <p className="text-xs text-neutral-400 mt-0.5">AI Engineer · RAG · LLMs · Agentic AI</p>
+            <p className="text-xs text-neutral-400 mt-0.5">Sr. Data Analyst · RAG · LLMs · Agentic AI</p>
           </div>
 
           <div className="flex items-center gap-1">
