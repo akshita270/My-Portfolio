@@ -6,7 +6,8 @@ export const products = [
     description:
       "A production-grade CI/CD pipeline for LLM evaluation — automated per-PR quality gates, per-question regression detection, and a live Next.js dashboard tracking LLM accuracy across 30 golden questions using 6 LLM-as-judge metrics.",
     thumbnail: "🔬",
-    image: "/images/projects/medeval-ai.png",
+    image: "/images/projects/medeval-ai.svg",
+    contain: true,
     color: "#f97316",
     period: "2026",
     stack: ["FastAPI", "Pydantic", "ChromaDB", "OpenAI API", "BM25", "sentence-transformers", "MLflow", "pytest", "GitHub Actions", "Next.js", "Recharts", "Vercel"],
@@ -279,7 +280,8 @@ export const products = [
     description:
       "A continual learning framework for LLMs inspired by how biological brains consolidate memories during sleep — using wake/sleep cycles with LoRA fine-tuning and experience replay on a MacBook M2 to learn new facts while retaining 93.3% of old knowledge.",
     thumbnail: "🌙",
-    image: "/images/projects/sleep-llm.png",
+    image: "/images/projects/sleep-llm.svg",
+    contain: true,
     color: "#7c3aed",
     period: "2026",
     stack: ["Python", "Qwen3-4B", "MLX", "LoRA", "SQLite"],

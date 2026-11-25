@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="background:#08051a">
+  <defs>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00c8a0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00c8a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background atmosphere -->
+  <rect width="800" height="450" fill="#08051a"/>
+  <ellipse cx="250" cy="200" rx="220" ry="180" fill="url(#glow1)"/>
+  <ellipse cx="580" cy="250" rx="180" ry="150" fill="url(#glow2)"/>
+
+  <!-- Stars -->
+  <circle cx="50" cy="40" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="130" cy="20" r="1.5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="680" cy="30" r="1" fill="#ffffff" opacity="0.5"/>
+  <circle cx="750" cy="60" r="1" fill="#ffffff" opacity="0.3"/>
+  <circle cx="30" cy="120" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="770" cy="130" r="1.5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="720" cy="400" r="1" fill="#ffffff" opacity="0.3"/>
+  <circle cx="80" cy="390" r="1.5" fill="#ffffff" opacity="0.4"/>
+
+  <!-- WAKE/SLEEP cycle label -->
+  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="10" fill="#7c3aed" letter-spacing="4" font-weight="700" opacity="0.8">WAKE / SLEEP CYCLE</text>
+
+  <!-- Wake phase box -->
+  <rect x="60" y="55" width="300" height="150" rx="12" fill="#7c3aed" fill-opacity="0.08" stroke="#7c3aed" stroke-width="1.5" stroke-opacity="0.4"/>
+  <text x="210" y="78" text-anchor="middle" font-family="monospace" font-size="10" fill="#a78bfa" font-weight="700" letter-spacing="3">WAKE PHASE</text>
+
+  <!-- Wake phase content: knowledge tokens -->
+  <rect x="80" y="90" width="70" height="30" rx="6" fill="#7c3aed" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="115" y="109" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">new fact #1</text>
+
+  <rect x="162" y="90" width="70" height="30" rx="6" fill="#7c3aed" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="197" y="109" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">new fact #2</text>
+
+  <rect x="244" y="90" width="70" height="30" rx="6" fill="#7c3aed" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="279" y="109" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">new fact #3</text>
+
+  <text x="210" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="#7c3aed90" letter-spacing="1">↓  stored in SQLite experience log  ↓</text>
+
+  <!-- SQLite pill -->
+  <rect x="145" y="155" width="130" height="24" rx="12" fill="#7c3aed" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="210" y="171" text-anchor="middle" font-family="monospace" font-size="9" fill="#a78bfa">SQLite · 220 entries</text>
+
+  <!-- Arrow between wake and sleep -->
+  <text x="400" y="128" text-anchor="middle" font-family="monospace" font-size="18" fill="#7c3aed" opacity="0.6">⟶</text>
+  <text x="400" y="143" text-anchor="middle" font-family="monospace" font-size="8" fill="#7c3aed60" letter-spacing="1">LoRA fine-tune</text>
+
+  <!-- Sleep phase box -->
+  <rect x="440" y="55" width="300" height="150" rx="12" fill="#00c8a0" fill-opacity="0.06" stroke="#00c8a0" stroke-width="1.5" stroke-opacity="0.3"/>
+  <text x="590" y="78" text-anchor="middle" font-family="monospace" font-size="10" fill="#00c8a0" font-weight="700" letter-spacing="3">SLEEP PHASE</text>
+
+  <!-- Sleep phase: LoRA fine-tune visualization -->
+  <text x="490" y="102" font-family="monospace" font-size="8" fill="#00c8a060" letter-spacing="1">new experiences +</text>
+  <text x="490" y="114" font-family="monospace" font-size="8" fill="#00c8a060" letter-spacing="1">replayed old ones</text>
+
+  <!-- Mini "training" visualization -->
+  <rect x="460" y="122" width="260" height="4" rx="2" fill="#ffffff10"/>
+  <rect x="460" y="122" width="195" height="4" rx="2" fill="#00c8a0" opacity="0.6"/>
+  <text x="720" y="129" font-family="monospace" font-size="8" fill="#00c8a0" opacity="0.7">75%</text>
+  <text x="460" y="140" font-family="monospace" font-size="8" fill="#00c8a060">LoRA adapter training · M2 GPU · MLX</text>
+
+  <!-- Champion/candidate gate -->
+  <rect x="490" y="150" width="200" height="28" rx="8" fill="#00c8a0" fill-opacity="0.1" stroke="#00c8a0" stroke-width="1" stroke-opacity="0.35"/>
+  <text x="590" y="166" text-anchor="middle" font-family="monospace" font-size="8" fill="#00c8a0">champion / candidate gate ✓</text>
+  <text x="590" y="176" text-anchor="middle" font-family="monospace" font-size="7" fill="#00c8a060">must beat retention exam before deploy</text>
+
+  <!-- Brain wave / EEG-style line across middle -->
+  <text x="30" y="245" font-family="monospace" font-size="8" fill="#7c3aed60" letter-spacing="2">EVAL</text>
+  <line x1="60" y1="245" x2="740" y2="245" stroke="#7c3aed" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <!-- Brainwave SVG path (EEG-style) -->
+  <path d="M 60 245 L 110 245 L 120 215 L 130 275 L 140 230 L 150 245
+           L 210 245 L 220 200 L 230 290 L 240 220 L 250 245
+           L 310 245 L 320 210 L 330 280 L 340 225 L 350 245
+           L 420 245 L 430 195 L 440 295 L 450 215 L 460 245
+           L 530 245 L 540 205 L 550 285 L 560 220 L 570 245
+           L 640 245 L 650 200 L 660 290 L 670 215 L 680 245 L 740 245"
+        fill="none" stroke="#7c3aed" stroke-width="1.8" opacity="0.55"/>
+
+  <!-- Results row -->
+  <text x="400" y="310" text-anchor="middle" font-family="monospace" font-size="10" fill="#7c3aed80" letter-spacing="4">RESULTS · 220-QUESTION EXAM</text>
+
+  <!-- Result cards -->
+  <rect x="80" y="325" width="140" height="68" rx="10" fill="#7c3aed" fill-opacity="0.1" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="150" y="348" text-anchor="middle" font-family="monospace" font-size="22" fill="#a78bfa" font-weight="700">86.7%</text>
+  <text x="150" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa80">new fact</text>
+  <text x="150" y="374" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa80">acquisition</text>
+  <text x="150" y="387" text-anchor="middle" font-family="monospace" font-size="7" fill="#7c3aed60">LoRA + replay</text>
+
+  <rect x="330" y="325" width="140" height="68" rx="10" fill="#00c8a0" fill-opacity="0.08" stroke="#00c8a0" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="400" y="348" text-anchor="middle" font-family="monospace" font-size="22" fill="#00c8a0" font-weight="700">93.3%</text>
+  <text x="400" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#00c8a080">old knowledge</text>
+  <text x="400" y="374" text-anchor="middle" font-family="monospace" font-size="8" fill="#00c8a080">retained</text>
+  <text x="400" y="387" text-anchor="middle" font-family="monospace" font-size="7" fill="#00c8a060">after sleep cycles</text>
+
+  <rect x="580" y="325" width="140" height="68" rx="10" fill="#38b4ff" fill-opacity="0.08" stroke="#38b4ff" stroke-width="1" stroke-opacity="0.25"/>
+  <text x="650" y="348" text-anchor="middle" font-family="monospace" font-size="22" fill="#38b4ff" font-weight="700">7.6%</text>
+  <text x="650" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#38b4ff80">forgetting</text>
+  <text x="650" y="374" text-anchor="middle" font-family="monospace" font-size="8" fill="#38b4ff80">rate</text>
+  <text x="650" y="387" text-anchor="middle" font-family="monospace" font-size="7" fill="#38b4ff50">vs. no-sleep baseline</text>
+
+  <!-- Footer label -->
+  <text x="400" y="435" text-anchor="middle" font-family="monospace" font-size="11" fill="#7c3aed" font-weight="700" letter-spacing="3" opacity="0.5">SLEEP-INSPIRED LLM · CONTINUAL LEARNING</text>
+</svg>
